@@ -20,7 +20,8 @@ bij te houden.
 'level' omhoog.  
 -Profielpagina die o.a. het level, aantal gekeken films en aantal uren aan film gekeken van de gebruiker laat zien.  
 -Films kunnen gelogd worden in een soort dagboek/journal.  
--De gebruiker kan films opzoeken om deze vervolgens te loggen, of om informatie te krijgen over de film.
+-De gebruiker kan films opzoeken om deze vervolgens te loggen, of om informatie te krijgen over de film.  
+-De gebruiker kan films toevoegen aan een watchlist om later nog te gaan kijken.
 
 ###### Optional features
 -De gebruiker kan bepaalde films die nog niet uit zijn gekomen 'volgen'. De gebruiker krijgt een melding als deze film is 

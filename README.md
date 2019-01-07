@@ -14,6 +14,8 @@ recenseren in een (persoonlijk) dagboek.
 De oplossing is een app die gebruikers beloont voor het kijken van (veel) films en ze in staat stelt om hun kijkgeschiedenis
 bij te houden.
 
+<img src="/doc/visual sketch.jpg" width="900">
+
 ###### Main features (minimum viable product)
 
 -Progressiebalk die gevuld wordt wanneer een film 'gelogd' wordt. Als de balk helemaal gevuld is gaat de gebruiker een

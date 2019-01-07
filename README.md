@@ -37,8 +37,7 @@ uitgekomen in de bioscoop of op dvd/bluray.
 -Letterboxd API (http://api-docs.letterboxd.com/)
 
 De TMD API zal worden gebruikt om informatie aan de gebruiker te tonen als deze een bepaalde film opzoekt. Belangrijke
-zaken zijn bijvoorbeeld het jaar waarin de film is uitgekomen, de poster, regisseur en vergelijkbare films. De Letterboxd API kan worden gebruikt
-om ratings en reviews van films te verkrijgen en te laten zien aan de gebruiker.
+zaken zijn bijvoorbeeld het jaar waarin de film is uitgekomen, de poster, regisseur en vergelijkbare films. De Letterboxd API kan worden gebruikt om ratings en reviews van films te verkrijgen en te laten zien aan de gebruiker.
 
 ###### External components
 
@@ -53,5 +52,13 @@ netwerk.
 
 ###### Hardest parts
 
-
+Een ding dat wellicht problemen op kan leveren is de manier waarop de gebruiker 'zoekt' naar films. Bij een API-verzoek 
+naar informatie over een film moet de (juiste) titel van de film duidelijk zijn. Het liefst zou je willen dat de gebruiker
+een aantal letters invoert en dat de titels van films die beginnen met deze letters dan als suggestie gegeven worden. Dit is
+echter lastig te doen aangezien je dan een database zou moeten hebben met alle filmtitels die er bestaan/bekend zijn. Zonder deze functie zal de gebruiker de filmtitel precies goed moeten spellen bij een zoekopdracht.  
+  
+  Het weergeven van een progressiebalk die gevuld wordt is wellicht moeilijk te implementeren, aangezien ik nog niet echt ervaring heb met zo'n soort visualisatie met Android.
+  
+  Om de gebruiker een melding te geven over bepaalde films is het nodig om goed op te zoeken hoe dit moet, aangezien we nog niet
+  eerder met zulke meldingen gewerkt hebben.
 

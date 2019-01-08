@@ -4,7 +4,7 @@
 
 <img src="/doc/designsketchjpg.jpg" width="900">
 
-### Classes
+### Classes and utility modules
 
 | FilmLog |
 | ------------- |

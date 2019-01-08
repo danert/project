@@ -11,10 +11,12 @@
 | filmTitle (string) |
 | filmRating (int) |
 | filmReview (string) |
+| filmDate (string) |
 | |
 | addTitle() |
 | addRating() |
 | addReview() |
+| addDate() |
 
 | Profile |
 | ------------- |
@@ -56,5 +58,9 @@ Ik zal de API van The Movie Database (https://www.themoviedb.org/documentation/a
 | user_id | name | progression | movieswatched | achievements | favoritefilms |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | int | string | int | list(strings) | list(strings) | list(strings) |
+
+### User interface
+
+
 
 

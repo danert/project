@@ -25,6 +25,7 @@ public class WatchlistActivity extends AppCompatActivity {
         exampleMovies.add("Her");
         exampleMovies.add("Enter the Void");
         exampleMovies.add("Lady Bird");
+        exampleMovies.add("It Follows");
 
         ListView watchlistView = findViewById(R.id.watchlist);
 

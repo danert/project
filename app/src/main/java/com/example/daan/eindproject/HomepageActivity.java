@@ -26,6 +26,6 @@ public class HomepageActivity extends AppCompatActivity {
         }
 
         // go to page
-        startActivity(intent);
+        startActivity(intent);dkfidjf
     }
 }

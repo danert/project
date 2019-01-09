@@ -61,6 +61,7 @@ Ik zal de API van The Movie Database (https://www.themoviedb.org/documentation/a
 
 Bij het kijken van films is het de bedoeling dat de progressiebalk op de homepage en profielpagina gevuld wordt (en weer gereset als een nieuw level bereikt is). Android Studio heeft hier gelukkig een ingebouwde class voor (https://developer.android.com/reference/android/widget/ProgressBar). Het is de bedoeling dat na ieder bereikt level het aantal films dat bekeken moet worden om een level omhoog te gaan ook stijgt. 
 
+Het is handig om voor iedere gebruiker een aparte database bij te houden waarin hun recensies, watchlist en progressie bijgehouden worden. 
 
 
 

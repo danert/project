@@ -20,7 +20,8 @@
         <activity android:name=".ViewHistoryActivity" />
         <activity android:name=".WatchlistActivity" />
         <activity android:name=".MovieInfoActivity" />
-        <activity android:name=".FilmLogActivity"></activity>
+        <activity android:name=".FilmLogActivity" />
+        <activity android:name=".FilmReviewActivity"></activity>
     </application>
 
 </manifest>

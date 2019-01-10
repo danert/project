@@ -14,19 +14,32 @@
 
     <TextView
         android:id="@+id/profileText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:onClick="pageClicked"
+        android:paddingLeft="14dp"
         android:paddingBottom="10dp"
-        android:text="Profiel"
-        android:textSize="40dp" />
+        android:text="Profielnaam (lvl 3)"
+        android:textSize="32dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="361dp"
+        android:layout_height="62dp"
+        android:layout_gravity="center"
+        android:progress="60"
+        android:scaleY="9" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="pageClicked"
-        android:paddingBottom="10dp"
+        android:paddingLeft="14dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="20dp"
         android:text="Kijkgeschiedenis"
         android:textSize="40dp" />
 
@@ -35,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="pageClicked"
+        android:paddingLeft="14dp"
         android:text="Watchlist"
         android:textSize="40dp" />
 </LinearLayout>

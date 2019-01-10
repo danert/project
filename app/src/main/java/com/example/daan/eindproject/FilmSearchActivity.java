@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -76,6 +78,10 @@ public class FilmSearchActivity extends AppCompatActivity {
                     }
                 }
 
+                // show movie titles to user
+                ListView searchResults = findViewById(R.id.searchResults);
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.textview, R.id.textView6, suggestionTitles);
+                searchResults.setAdapter(arrayAdapter);
 
             }
         }, new Response.ErrorListener() {

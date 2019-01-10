@@ -16,6 +16,7 @@ public class WatchlistActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().setTitle("Watchlist");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_watchlist);
 

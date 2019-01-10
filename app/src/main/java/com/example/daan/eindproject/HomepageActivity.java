@@ -10,6 +10,10 @@ public class HomepageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // change action bar title (https://stackoverflow.com/questions/3438276/how-to-change-the-text-on-the-action-bar)
+        getSupportActionBar().setTitle("Cinemaster");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
     }
@@ -23,7 +27,9 @@ public class HomepageActivity extends AppCompatActivity {
 
         switch (pageName.getText().toString()) {
             case "Kijkgeschiedenis": intent = new Intent(HomepageActivity.this, ViewHistoryActivity.class);
+                break;
             case "Watchlist": intent = new Intent(HomepageActivity.this, WatchlistActivity.class);
+                break;
         }
 
         // go to page

@@ -7,6 +7,7 @@ public class ViewHistoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().setTitle("Kijkgeschiedenis");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_history);
     }

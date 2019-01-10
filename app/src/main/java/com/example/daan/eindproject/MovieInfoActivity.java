@@ -12,6 +12,7 @@ public class MovieInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().setTitle("Filminfo");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_info);
 
@@ -32,5 +33,15 @@ public class MovieInfoActivity extends AppCompatActivity {
         intent.putExtra("movieTitle", movieTitle);
 
         startActivity(intent);
+    }
+
+    // add movie to watchlist
+    public void addWatchlist(View v) {
+
+
+        // move back to homepage
+        Intent intent = new Intent(MovieInfoActivity.this, HomepageActivity.class);
+        startActivity(intent);
+
     }
 }

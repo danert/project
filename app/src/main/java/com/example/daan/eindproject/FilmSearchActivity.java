@@ -13,7 +13,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class FilmSearchActivity extends AppCompatActivity {
 
@@ -43,6 +47,35 @@ public class FilmSearchActivity extends AppCompatActivity {
             // when suggestions were received
             @Override
             public void onResponse(JSONObject response) {
+
+                // retrieve list of movie titles from suggestions
+                ArrayList<String> suggestionTitles = new ArrayList<String>();
+
+                JSONArray suggestions = new JSONArray();
+                try {
+                    suggestions = response.getJSONArray("results");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                // parse array for movie titles
+                for (int i = 0; i < suggestions.length(); i++) {
+                    try {
+
+                        // grab whole suggestion
+                        JSONObject suggestion = suggestions.getJSONObject(i);
+
+                        // grab movie title from suggestion
+                        String movieTitle = suggestion.getString("title");
+
+                        // add movie title to list
+                        suggestionTitles.add(movieTitle);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
 
             }
         }, new Response.ErrorListener() {

@@ -30,6 +30,8 @@ public class HomepageActivity extends AppCompatActivity {
                 break;
             case "Watchlist": intent = new Intent(HomepageActivity.this, WatchlistActivity.class);
                 break;
+            case "Zoek een film": intent = new Intent(HomepageActivity.this, FilmSearchActivity.class);
+                break;
         }
 
         // go to page

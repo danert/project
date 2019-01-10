@@ -7,11 +7,6 @@
     android:orientation="vertical"
     tools:context=".HomepageActivity">
 
-    <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:queryHint="Zoek een film..." />
-
     <TextView
         android:id="@+id/profileText"
         android:layout_width="wrap_content"
@@ -19,6 +14,7 @@
         android:layout_gravity="center"
         android:onClick="pageClicked"
         android:paddingLeft="14dp"
+        android:paddingTop="15dp"
         android:paddingBottom="10dp"
         android:text="Profielnaam (lvl 3)"
         android:textSize="32dp" />
@@ -49,6 +45,16 @@
         android:layout_height="wrap_content"
         android:onClick="pageClicked"
         android:paddingLeft="14dp"
+        android:paddingBottom="20dp"
         android:text="Watchlist"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pageClicked"
+        android:paddingLeft="14dp"
+        android:text="Zoek een film"
         android:textSize="40dp" />
 </LinearLayout>

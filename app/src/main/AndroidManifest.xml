@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.daan.eindproject">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +22,8 @@
         <activity android:name=".WatchlistActivity" />
         <activity android:name=".MovieInfoActivity" />
         <activity android:name=".FilmLogActivity" />
-        <activity android:name=".FilmReviewActivity"></activity>
+        <activity android:name=".FilmReviewActivity" />
+        <activity android:name=".FilmSearchActivity"></activity>
     </application>
 
 </manifest>

@@ -82,7 +82,6 @@ public class FilmSearchActivity extends AppCompatActivity {
                 ListView searchResults = findViewById(R.id.searchResults);
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.textview, R.id.textView6, suggestionTitles);
                 searchResults.setAdapter(arrayAdapter);
-
             }
         }, new Response.ErrorListener() {
             @Override

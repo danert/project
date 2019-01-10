@@ -30,7 +30,12 @@ public class WatchlistActivity extends AppCompatActivity {
         ListView watchlistView = findViewById(R.id.watchlist);
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.textview, R.id.textView6, exampleMovies);
+
+        watchlistView.setAdapter(arrayAdapter);
         // test for prototype ends here
+
+        // set listener for listview
+        watchlistView.setOnItemClickListener(new ListItemClickListener());
 
     }
 
@@ -43,7 +48,7 @@ public class WatchlistActivity extends AppCompatActivity {
             // grabs movie title that has been clicked
             String movieTitle = (String) parent.getItemAtPosition(position);
 
-            // direct user to movie info activity
+            // direct user to movie movie info activity
             Intent intent = new Intent(WatchlistActivity.this, MovieInfoActivity.class);
             intent.putExtra("movieTitle", movieTitle);
             startActivity(intent);

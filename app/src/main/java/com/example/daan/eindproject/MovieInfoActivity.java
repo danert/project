@@ -4,15 +4,23 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class MovieInfoActivity extends AppCompatActivity {
 
-    String title, poster;
+    String movieTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_info);
+
+        // extract movie title from intent
+        Intent intent = getIntent();
+        movieTitle = (String) intent.getSerializableExtra("movieTitle");
+
+        TextView titleView = findViewById(R.id.titleView);
+        titleView.setText(movieTitle);
     }
 
     // move to filmlogactivity
@@ -21,8 +29,7 @@ public class MovieInfoActivity extends AppCompatActivity {
         Intent intent = new Intent(MovieInfoActivity.this, FilmLogActivity.class);
 
         // give movie title and poster to intent
-        intent.putExtra("title", title);
-        intent.putExtra("poster", poster);
+        intent.putExtra("movieTitle", movieTitle);
 
         startActivity(intent);
     }

@@ -17,9 +17,10 @@ public class HomepageActivity extends AppCompatActivity {
     public void pageClicked(View v) {
 
         TextView pageName = (TextView) v;
-        Intent intent = new Intent(HomepageActivity.this, ProfileActivity.class);
 
         // check what page has been clicked
+        Intent intent = new Intent(HomepageActivity.this, ProfileActivity.class);
+
         switch (pageName.getText().toString()) {
             case "Kijkgeschiedenis": intent = new Intent(HomepageActivity.this, ViewHistoryActivity.class);
             case "Watchlist": intent = new Intent(HomepageActivity.this, WatchlistActivity.class);

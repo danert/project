@@ -115,7 +115,6 @@ public class FilmSearchActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonObjectRequest);
-
     }
 
     // listens if movie from suggestions is clicked (NOT YET CONNECTED TO THE LISTVIEW)

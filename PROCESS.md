@@ -15,4 +15,4 @@ Vandaag heb ik onder andere de zoekfunctie van de app verbeterd. Als je nu een z
 
 <img src="/doc/searchfunctionscreenshot.jpg" width="250"> <img src="/doc/movieinfoscreenshot.jpg" width="250">
 
-Het project bestaat nu uit acht activities en één custom adapter. Ook heb ik ervoor gekozen om een class te maken genaamd MovieInfo om hierin zaken als de poster, titel en plot van een specifieke film op te slaan om deze zo makkelijk tussen activities over te brengen. Als je zo bijvoorbeeld op een suggestie klikt, is het niet nodig om opnieuw gebruik te maken van de API om informatie over de film op te zoeken.  
+Het project bestaat nu uit acht activities en één custom adapter. Ook heb ik ervoor gekozen om een class te maken genaamd MovieInfo om hierin zaken als de poster, titel en plot van een specifieke film op te slaan om deze zo makkelijk tussen activities over te brengen. Als je zo bijvoorbeeld op een suggestie klikt, is het niet nodig om opnieuw gebruik te maken van de API om informatie over de gekozen film op te zoeken.  

@@ -51,7 +51,7 @@ public class FilmSearchActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
 
                 // retrieve list of movie titles from suggestions
-                ArrayList<String> suggestionTitles = new ArrayList<String>();
+                ArrayList<FilmSuggestion> filmSuggestions = new ArrayList<FilmSuggestion>();
 
                 JSONArray suggestions = new JSONArray();
                 try {
@@ -64,14 +64,31 @@ public class FilmSearchActivity extends AppCompatActivity {
                 for (int i = 0; i < suggestions.length(); i++) {
                     try {
 
+                        // create new filmsuggestion object
+                        FilmSuggestion filmSuggestion = new FilmSuggestion();
+
                         // grab whole suggestion
                         JSONObject suggestion = suggestions.getJSONObject(i);
 
                         // grab movie title from suggestion
                         String movieTitle = suggestion.getString("title");
+                        filmSuggestion.setMovieTitle(movieTitle);
+
+                        // grab poster url from suggestion
+                        String posterUrl = suggestion.getString("poster_path");
+                        filmSuggestion.setPosterUrl(posterUrl);
+
+                        // grab id from suggestion
+                        String movieId = suggestion.getString("id");
+                        filmSuggestion.setMovieId(movieId);
+
+                        // grab release year from suggestion
+                        String releaseDate = suggestion.getString("release_date");
+                        String releaseYear = releaseDate.substring(0, 3);
+                        filmSuggestion.setReleaseYear(releaseYear);
 
                         // add movie title to list
-                        suggestionTitles.add(movieTitle);
+                        filmSuggestions.add(filmSuggestion);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -80,7 +97,9 @@ public class FilmSearchActivity extends AppCompatActivity {
 
                 // show movie titles to user
                 ListView searchResults = findViewById(R.id.searchResults);
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.textview, R.id.textView6, suggestionTitles);
+
+
+
                 searchResults.setAdapter(arrayAdapter);
             }
         }, new Response.ErrorListener() {

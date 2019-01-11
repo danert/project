@@ -11,13 +11,12 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class SuggestionAdapter extends ArrayAdapter<FilmSuggestion> {
+public class SuggestionAdapter extends ArrayAdapter<MovieInfo> {
 
-    ArrayList<FilmSuggestion> suggestions;
+    ArrayList<MovieInfo> suggestions;
 
-    public SuggestionAdapter(Context context, int resource, ArrayList<FilmSuggestion> filmSuggestions) {
+    public SuggestionAdapter(Context context, int resource, ArrayList<MovieInfo> filmSuggestions) {
         super(context, resource, filmSuggestions);
         suggestions = filmSuggestions;
     }
@@ -29,7 +28,7 @@ public class SuggestionAdapter extends ArrayAdapter<FilmSuggestion> {
         }
 
         // grab suggestion
-        FilmSuggestion suggestion = suggestions.get(position);
+        MovieInfo suggestion = suggestions.get(position);
 
         // set name and release year of movie
         TextView titleView = convertView.findViewById(R.id.titleView);

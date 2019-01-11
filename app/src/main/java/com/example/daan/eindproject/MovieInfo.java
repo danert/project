@@ -2,9 +2,9 @@ package com.example.daan.eindproject;
 
 import java.io.Serializable;
 
-public class FilmSuggestion implements Serializable {
+public class MovieInfo implements Serializable {
 
-    String movieTitle, posterUrl, releaseYear, movieId;
+    String movieTitle, posterUrl, releaseYear, movieId, moviePlot;
 
     public void setMovieTitle(String movieTitle) {
         this.movieTitle = movieTitle;
@@ -22,6 +22,10 @@ public class FilmSuggestion implements Serializable {
         this.movieId = movieId;
     }
 
+    public void setMoviePlot(String moviePlot) {
+        this.moviePlot = moviePlot;
+    }
+
     public String getMovieTitle() {
         return movieTitle;
     }
@@ -36,5 +40,9 @@ public class FilmSuggestion implements Serializable {
 
     public String getMovieId() {
         return movieId;
+    }
+
+    public String getMoviePlot() {
+        return moviePlot;
     }
 }

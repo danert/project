@@ -1,10 +1,10 @@
 package com.example.daan.eindproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -27,14 +27,11 @@ public class FilmSearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_film_search);
-
-
     }
 
 
     // if input is entered in search bar, show suggestions
     public void inputEntered(View v) {
-
 
         // grab input
         EditText searchBar = findViewById(R.id.filmInput);
@@ -51,7 +48,7 @@ public class FilmSearchActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
 
                 // retrieve list of movie titles from suggestions
-                ArrayList<FilmSuggestion> filmSuggestions = new ArrayList<FilmSuggestion>();
+                ArrayList<MovieInfo> filmSuggestions = new ArrayList<MovieInfo>();
 
                 JSONArray suggestions = new JSONArray();
                 try {
@@ -65,30 +62,34 @@ public class FilmSearchActivity extends AppCompatActivity {
                     try {
 
                         // create new filmsuggestion object
-                        FilmSuggestion filmSuggestion = new FilmSuggestion();
+                        MovieInfo movieInfo = new MovieInfo();
 
                         // grab whole suggestion
                         JSONObject suggestion = suggestions.getJSONObject(i);
 
                         // grab movie title from suggestion
                         String movieTitle = suggestion.getString("title");
-                        filmSuggestion.setMovieTitle(movieTitle);
+                        movieInfo.setMovieTitle(movieTitle);
 
                         // grab poster url from suggestion
                         String posterUrl = suggestion.getString("poster_path");
-                        filmSuggestion.setPosterUrl(posterUrl);
+                        movieInfo.setPosterUrl(posterUrl);
 
                         // grab id from suggestion
                         String movieId = suggestion.getString("id");
-                        filmSuggestion.setMovieId(movieId);
+                        movieInfo.setMovieId(movieId);
 
                         // grab release year from suggestion
                         String releaseDate = suggestion.getString("release_date");
-                        String releaseYear = releaseDate.substring(0, 3);
-                        filmSuggestion.setReleaseYear(releaseYear);
+                        String releaseYear = releaseDate.substring(0, 4);
+                        movieInfo.setReleaseYear(releaseYear);
 
-                        // add movie title to list
-                        filmSuggestions.add(filmSuggestion);
+                        // grab plot from suggestion
+                        String moviePlot = suggestion.getString("overview");
+                        movieInfo.setMoviePlot(moviePlot);
+
+                        // add movie info to list
+                        filmSuggestions.add(movieInfo);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -102,6 +103,9 @@ public class FilmSearchActivity extends AppCompatActivity {
                 SuggestionAdapter adapter = new SuggestionAdapter(getApplicationContext(), R.layout.filmsuggestion, filmSuggestions);
                 searchResults.setAdapter(adapter);
 
+                // connect listview to listener
+                searchResults.setOnItemClickListener(new ListItemClickListener());
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -111,9 +115,21 @@ public class FilmSearchActivity extends AppCompatActivity {
         });
         queue.add(jsonObjectRequest);
 
-
     }
 
+    // listens if movie from suggestions is clicked (NOT YET CONNECTED TO THE LISTVIEW)
+    private class ListItemClickListener implements AdapterView.OnItemClickListener {
 
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+            // grabs film suggestion that has been clicked
+            MovieInfo movieInfo = (MovieInfo) parent.getItemAtPosition(position);
+
+            // direct user to movie info activity
+            Intent intent = new Intent(FilmSearchActivity.this, MovieInfoActivity.class);
+            intent.putExtra("movieInfo", movieInfo);
+            startActivity(intent);
+        }
+    }
 }

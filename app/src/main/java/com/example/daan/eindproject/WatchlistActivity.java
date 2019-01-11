@@ -33,7 +33,7 @@ public class WatchlistActivity extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.textview, R.id.textView6, exampleMovies);
 
         watchlistView.setAdapter(arrayAdapter);
-        // test for prototype ends here
+        // test for prototype ends here (dont delete everything above this!!)
 
         // set listener for listview
         watchlistView.setOnItemClickListener(new ListItemClickListener());

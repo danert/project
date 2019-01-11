@@ -20,9 +20,11 @@
 
     <ImageView
         android:id="@+id/posterView"
-        android:layout_width="3dp"
-        android:layout_height="86dp"
-        android:layout_weight="1"
-        android:paddingTop="15dp"
+        android:layout_width="66dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0"
         tools:srcCompat="@tools:sample/avatars[5]" />
 </LinearLayout>

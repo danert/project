@@ -98,9 +98,10 @@ public class FilmSearchActivity extends AppCompatActivity {
                 // show movie titles to user
                 ListView searchResults = findViewById(R.id.searchResults);
 
+                // instantiate adapter
+                SuggestionAdapter adapter = new SuggestionAdapter(getApplicationContext(), R.layout.filmsuggestion, filmSuggestions);
+                searchResults.setAdapter(adapter);
 
-
-                searchResults.setAdapter(arrayAdapter);
             }
         }, new Response.ErrorListener() {
             @Override

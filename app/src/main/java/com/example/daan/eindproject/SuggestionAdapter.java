@@ -48,5 +48,4 @@ public class SuggestionAdapter extends ArrayAdapter<FilmSuggestion> {
 
         return convertView;
     }
-
 }

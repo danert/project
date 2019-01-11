@@ -25,6 +25,7 @@ public class FilmSearchActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().setTitle("Zoeken");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_film_search);
     }

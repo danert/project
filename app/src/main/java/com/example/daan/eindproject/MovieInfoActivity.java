@@ -41,8 +41,6 @@ public class MovieInfoActivity extends AppCompatActivity {
         ImageView posterView = findViewById(R.id.posterView);
         String posterUrl = movieInfo.getPosterUrl();
         String url = String.format("http://image.tmdb.org/t/p/w185/%s", posterUrl);
-
-        // https://stackoverflow.com/questions/43971819/android-how-to-set-an-image-to-an-imageview-from-a-url-programatically
         Picasso.with(getApplicationContext()).load(url).into(posterView);
 
     }

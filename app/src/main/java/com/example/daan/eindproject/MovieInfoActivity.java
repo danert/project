@@ -46,7 +46,6 @@ public class MovieInfoActivity extends AppCompatActivity {
         String posterUrl = movieInfo.getPosterUrl();
         String url = String.format("http://image.tmdb.org/t/p/w185/%s", posterUrl);
         Picasso.with(getApplicationContext()).load(url).into(posterView);
-
     }
 
     // move to filmlogactivity
@@ -55,8 +54,7 @@ public class MovieInfoActivity extends AppCompatActivity {
         Intent intent = new Intent(MovieInfoActivity.this, FilmLogActivity.class);
 
         // give movie title and poster to intent
-        intent.putExtra("movieTitle", movieTitle);
-
+        intent.putExtra("movieInfo", movieInfo);
         startActivity(intent);
     }
 

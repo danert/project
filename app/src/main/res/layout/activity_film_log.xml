@@ -25,7 +25,7 @@
         android:paddingBottom="20dp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/reviewText"
         android:layout_width="362dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class ViewHistoryActivity extends AppCompatActivity {
+public class ViewingHistoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class ViewHistoryActivity extends AppCompatActivity {
             String movieTitle = (String) parent.getItemAtPosition(position);
 
             // direct user to movie movie info activity
-            Intent intent = new Intent(ViewHistoryActivity.this, FilmReviewActivity.class);
+            Intent intent = new Intent(ViewingHistoryActivity.this, FilmReviewActivity.class);
             intent.putExtra("movieTitle", movieTitle);
             startActivity(intent);
         }

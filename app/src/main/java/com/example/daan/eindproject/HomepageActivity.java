@@ -26,7 +26,7 @@ public class HomepageActivity extends AppCompatActivity {
         Intent intent = new Intent(HomepageActivity.this, ProfileActivity.class);
 
         switch (pageName.getText().toString()) {
-            case "Kijkgeschiedenis": intent = new Intent(HomepageActivity.this, ViewHistoryActivity.class);
+            case "Kijkgeschiedenis": intent = new Intent(HomepageActivity.this, ViewingHistoryActivity.class);
                 break;
             case "Watchlist": intent = new Intent(HomepageActivity.this, WatchlistActivity.class);
                 break;

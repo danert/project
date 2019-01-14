@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".ViewHistoryActivity" />
+        <activity android:name=".ViewingHistoryActivity" />
         <activity android:name=".WatchlistActivity" />
         <activity android:name=".MovieInfoActivity" />
         <activity android:name=".FilmLogActivity" />

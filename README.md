@@ -28,11 +28,11 @@ bij te houden.
 ###### Optional features
 -De gebruiker kan bepaalde films die nog niet uit zijn gekomen 'volgen'. De gebruiker krijgt een melding als deze film is 
 uitgekomen in de bioscoop of op dvd/bluray.  
--De gebruiker kan andere gebruikers volgen om hun profielen te bekijken en te zien welke films ze hebben gekeken.
--Profielen laten ook informatie zien over wat voor soort films de gebruiker precies kijkt, etc.
--De app kan de gebruiker een film aanraden om te kijken op basis van eerder gekeken films.
--De gebruiker kan een quiz/spelletje over gekeken films spelen (bijv. welke film heeft meer winst gemaakt/heeft hogere rating?)  
--De gebruiker kan meerdere verschillende lijsten van films bijhouden
+-De gebruiker kan andere gebruikers volgen om hun profielen te bekijken en te zien welke films ze hebben gekeken.  
+-Profielen laten ook informatie zien over wat voor soort films de gebruiker precies kijkt, etc.  
+-De app kan de gebruiker een film aanraden om te kijken op basis van eerder gekeken films.  
+-De gebruiker kan een quiz/spelletje over gekeken films spelen (bijv. welke film heeft meer winst gemaakt/heeft hogere rating?)   
+-De gebruiker kan meerdere verschillende lijsten van films bijhouden  
 -De gebruiker kan bepaalde 'achievements' halen (bijvoorbeeld kijk 5 Franse films, kijk een film uit 1950)
 
 ## Prerequisites

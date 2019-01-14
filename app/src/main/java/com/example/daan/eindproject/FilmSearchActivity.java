@@ -62,15 +62,18 @@ public class FilmSearchActivity extends AppCompatActivity {
                 for (int i = 0; i < suggestions.length(); i++) {
                     try {
 
-                        // create new filmsuggestion object
+                        // create new filmpreview object
                         MovieInfo movieInfo = new MovieInfo();
 
                         // grab whole suggestion
                         JSONObject suggestion = suggestions.getJSONObject(i);
 
-                        // grab movie title from suggestion
+                        // grab movie title and release year from suggestion
                         String movieTitle = suggestion.getString("title");
-                        movieInfo.setMovieTitle(movieTitle);
+                        String releaseDate = suggestion.getString("release_date");
+                        String releaseYear = releaseDate.substring(0, 4);
+                        String releaseTitle = String.format("%s (%s)", movieTitle, releaseYear);
+                        movieInfo.setReleaseTitle(releaseTitle);
 
                         // grab poster url from suggestion
                         String posterUrl = suggestion.getString("poster_path");
@@ -79,11 +82,6 @@ public class FilmSearchActivity extends AppCompatActivity {
                         // grab id from suggestion
                         String movieId = suggestion.getString("id");
                         movieInfo.setMovieId(movieId);
-
-                        // grab release year from suggestion
-                        String releaseDate = suggestion.getString("release_date");
-                        String releaseYear = releaseDate.substring(0, 4);
-                        movieInfo.setReleaseYear(releaseYear);
 
                         // grab plot from suggestion
                         String moviePlot = suggestion.getString("overview");
@@ -101,7 +99,7 @@ public class FilmSearchActivity extends AppCompatActivity {
                 ListView searchResults = findViewById(R.id.searchResults);
 
                 // instantiate adapter
-                SuggestionAdapter adapter = new SuggestionAdapter(getApplicationContext(), R.layout.filmsuggestion, filmSuggestions);
+                PreviewAdapter adapter = new PreviewAdapter(getApplicationContext(), R.layout.filmpreview, filmSuggestions);
                 searchResults.setAdapter(adapter);
 
                 // connect listview to listener

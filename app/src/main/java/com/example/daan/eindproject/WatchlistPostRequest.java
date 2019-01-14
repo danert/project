@@ -9,7 +9,7 @@ import java.util.Map;
 public class WatchlistPostRequest extends StringRequest {
 
     // releaseTitle = movie title + releaseyear (e.g. Her (2013))
-    String movieId, posterUrl, releaseTitle;
+    String movieId, posterUrl, releaseTitle, moviePlot;
 
     // Constructor
     public WatchlistPostRequest(int method, String url, Response.Listener<String> listener, Response.ErrorListener errorListener, MovieInfo movieInfo) {
@@ -17,8 +17,8 @@ public class WatchlistPostRequest extends StringRequest {
 
         movieId = movieInfo.getMovieId();
         posterUrl = movieInfo.getPosterUrl();
-
-        releaseTitle = String.format("%s (%s)", movieInfo.getMovieTitle(), movieInfo.getReleaseYear());
+        moviePlot = movieInfo.getMoviePlot();
+        releaseTitle = movieInfo.getReleaseTitle();
     }
 
     // Method to supply parameters to the request
@@ -26,9 +26,10 @@ public class WatchlistPostRequest extends StringRequest {
     protected Map<String, String> getParams() {
 
         Map<String, String> params = new HashMap<>();
-        params.put("id", movieId);
+        params.put("movieId", movieId);
         params.put("releaseTitle", releaseTitle);
         params.put("posterUrl", posterUrl);
+        params.put("moviePlot", moviePlot);
         return params;
     }
 }

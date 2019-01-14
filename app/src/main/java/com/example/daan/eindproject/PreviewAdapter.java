@@ -12,11 +12,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class SuggestionAdapter extends ArrayAdapter<MovieInfo> {
+public class PreviewAdapter extends ArrayAdapter<MovieInfo> {
 
     ArrayList<MovieInfo> suggestions;
 
-    public SuggestionAdapter(Context context, int resource, ArrayList<MovieInfo> filmSuggestions) {
+    // constructor
+    public PreviewAdapter(Context context, int resource, ArrayList<MovieInfo> filmSuggestions) {
         super(context, resource, filmSuggestions);
         suggestions = filmSuggestions;
     }
@@ -24,7 +25,7 @@ public class SuggestionAdapter extends ArrayAdapter<MovieInfo> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.filmsuggestion, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.filmpreview, parent, false);
         }
 
         // grab suggestion
@@ -32,9 +33,7 @@ public class SuggestionAdapter extends ArrayAdapter<MovieInfo> {
 
         // set name and release year of movie
         TextView titleView = convertView.findViewById(R.id.titleView);
-        String movieTitle = suggestion.getMovieTitle();
-        String releaseYear = suggestion.getReleaseYear();
-        String suggestionText = String.format("%s (%s)", movieTitle, releaseYear);
+        String suggestionText = suggestion.getReleaseTitle();
         titleView.setText(suggestionText);
 
         // set movie poster

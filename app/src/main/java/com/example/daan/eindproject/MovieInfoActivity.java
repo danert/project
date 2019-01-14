@@ -33,10 +33,8 @@ public class MovieInfoActivity extends AppCompatActivity {
 
         // show title and release year
         TextView titleView = findViewById(R.id.titleView);
-        movieTitle = movieInfo.getMovieTitle();
-        String releaseYear = movieInfo.getReleaseYear();
-        String titleRelease = String.format("%s (%s)", movieTitle, releaseYear);
-        titleView.setText(titleRelease);
+        String releaseTitle = movieInfo.getReleaseTitle();
+        titleView.setText(releaseTitle);
 
         // show plot
         TextView plotView = findViewById(R.id.plotView);
@@ -65,8 +63,8 @@ public class MovieInfoActivity extends AppCompatActivity {
     // add movie to watchlist
     public void addWatchlist(View v) {
 
-        // VOORBEELDNAAM VAN PROFIEL, LATER VERVANGEN
-        String url = "https://ide50-danert.legacy.cs50.io:8080/watchlist";
+        // DAAN IS TEST, MOET LATER VERVANGER WORDEN DOOR VARIABELE VOOR GEBRUIKERSNAAM
+        String url = "https://ide50-danert.legacy.cs50.io:8080/daanwatchlist";
         RequestQueue queue = Volley.newRequestQueue(this);
         WatchlistPostRequest request = new WatchlistPostRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override

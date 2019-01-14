@@ -7,7 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
 public class MovieInfoActivity extends AppCompatActivity {
@@ -59,10 +65,26 @@ public class MovieInfoActivity extends AppCompatActivity {
     // add movie to watchlist
     public void addWatchlist(View v) {
 
+        // VOORBEELDNAAM VAN PROFIEL, LATER VERVANGEN
+        String url = "https://ide50-danert.legacy.cs50.io:8080/watchlist";
+        RequestQueue queue = Volley.newRequestQueue(this);
+        WatchlistPostRequest request = new WatchlistPostRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }, movieInfo);
+        queue.add(request);
 
         // move back to homepage
         Intent intent = new Intent(MovieInfoActivity.this, HomepageActivity.class);
         startActivity(intent);
 
     }
+
+
 }

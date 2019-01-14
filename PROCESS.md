@@ -16,3 +16,9 @@ Vandaag heb ik onder andere de zoekfunctie van de app verbeterd. Als je nu een z
 <img src="/doc/searchfunctionscreenshot.jpg" width="250"> <img src="/doc/movieinfoscreenshot.jpg" width="250">
 
 Het project bestaat nu uit acht activities en één custom adapter. Ook heb ik ervoor gekozen om een class te maken genaamd MovieInfo om hierin zaken als de poster, titel en plot van een specifieke film op te slaan om deze zo makkelijk tussen activities over te brengen. Als je zo bijvoorbeeld op een suggestie klikt, is het niet nodig om opnieuw gebruik te maken van de API om informatie over de gekozen film op te zoeken.
+
+#### Maandag 14 januari
+
+Vandaag heb ik me vooral gefocust op het werken met een database. De gebruiker is nu in staat om, na het opzoeken van een film, deze film toe te voegen aan zijn of haar watchlist. Deze worden online opgeslagen waarna de gebruiker de watchlist kan bekijken. Iedere gebruiker/profiel krijgt zijn eigen watchlist in de database, dus gebruiker 'daan' krijgt /daanwatchlist als 'site' toegewezen.  
+
+De database krijgt waarschijnlijk een tabel waarin alle aangemaakte profielen/accounts worden opgeslagen (inclusief o.a. wachtwoord en aantal minuten aan film gekeken). Verder krijgt ieder profiel een aparte tabel voor de watchlist en kijkgeschiedenis.

@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -24,6 +23,8 @@ import java.util.ArrayList;
 
 public class ViewingHistoryActivity extends AppCompatActivity {
 
+    ListView viewHistoryList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().setTitle("Kijkgeschiedenis");
@@ -32,15 +33,10 @@ public class ViewingHistoryActivity extends AppCompatActivity {
 
         getViewingHistory();
 
-        ListView watchlistView = findViewById(R.id.viewhistoryList);
-
-
-
-        watchlistView.setAdapter(arrayAdapter);
-        // test for prototype ends here
+        viewHistoryList = findViewById(R.id.viewhistoryList);
 
         // set listener for listview
-        watchlistView.setOnItemClickListener(new ListItemClickListener());
+        viewHistoryList.setOnItemClickListener(new ListItemClickListener());
     }
 
     // listens if movie from view history is clicked
@@ -74,39 +70,43 @@ public class ViewingHistoryActivity extends AppCompatActivity {
             public void onResponse(JSONArray response) {
 
                 // prepare list to give to adapter
-                ArrayList<MovieInfo> watchlist = new ArrayList<MovieInfo>();
+                ArrayList<FilmReview> filmReviews = new ArrayList<FilmReview>();
 
-                // convert watchlist entries to movieinfos
+                // convert database entries to filmreviews
                 for (int i = 0; i < response.length(); i++) {
 
-                    // create new movieinfo object
-                    MovieInfo movie = new MovieInfo();
+                    // create new filmreview object
+                    FilmReview filmReview = new FilmReview();
 
                     try {
-                        // grab and set info of movie
-                        JSONObject movieEntry = response.getJSONObject(i);
 
-                        String moviePlot = movieEntry.getString("moviePlot");
-                        movie.setMoviePlot(moviePlot);
+                        JSONObject databaseEntry = response.getJSONObject(i);
 
-                        String movieId = movieEntry.getString("movieId");
-                        movie.setMovieId(movieId);
+                        String movieId = databaseEntry.getString("movieId");
+                        filmReview.setMovieId(movieId);
 
-                        String posterUrl = movieEntry.getString("posterUrl");
-                        movie.setPosterUrl(posterUrl);
+                        String posterUrl = databaseEntry.getString("posterUrl");
+                        filmReview.setPosterUrl(posterUrl);
 
-                        String releaseTitle = movieEntry.getString("releaseTitle");
-                        movie.setReleaseTitle(releaseTitle);
+                        String releaseTitle = databaseEntry.getString("releaseTitle");
+                        filmReview.setReleaseTitle(releaseTitle);
 
-                        watchlist.add(movie);
+                        String reviewText = databaseEntry.getString("reviewText");
+                        filmReview.setReviewText(reviewText);
+
+                        String starRating = databaseEntry.getString("starRating");
+                        float floatRating = Float.valueOf(starRating);
+                        filmReview.setStarRating(floatRating);
+
+                        filmReviews.add(filmReview);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
-                    // show watchlist entries to user
+                    // show viewing history to user
                     ListView watchlistView = findViewById(R.id.watchlist);
-                    PreviewAdapter adapter = new PreviewAdapter(getApplicationContext(), R.layout.filmpreview, watchlist);
+                    ReviewAdapter adapter = new ReviewAdapter(getApplicationContext(), R.layout.filmreview, filmReviews);
                     watchlistView.setAdapter(adapter);
                 }
             }
@@ -117,9 +117,5 @@ public class ViewingHistoryActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonArrayRequest);
-
-
     }
-
-
 }

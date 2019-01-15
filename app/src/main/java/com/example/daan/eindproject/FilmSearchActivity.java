@@ -70,10 +70,16 @@ public class FilmSearchActivity extends AppCompatActivity {
 
                         // grab movie title and release year from suggestion
                         String movieTitle = suggestion.getString("title");
-                        String releaseDate = suggestion.getString("release_date");
-                        String releaseYear = releaseDate.substring(0, 4);
-                        String releaseTitle = String.format("%s (%s)", movieTitle, releaseYear);
-                        movieInfo.setReleaseTitle(releaseTitle);
+
+                        // try catch to prevent error, but might cause no title to appear?
+                        try {
+                            String releaseDate = suggestion.getString("release_date");
+                            String releaseYear = releaseDate.substring(0, 4);
+                            String releaseTitle = String.format("%s (%s)", movieTitle, releaseYear);
+                            movieInfo.setReleaseTitle(releaseTitle);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
                         // grab poster url from suggestion
                         String posterUrl = suggestion.getString("poster_path");

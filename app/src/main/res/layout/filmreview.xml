@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="31dp"
+        android:layout_weight="1"
+        android:text="TextView"
+        android:textSize="20dp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="3dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_weight="1"
+        android:numStars="5" />
+
+    <ImageView
+        android:id="@+id/posterView"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="14dp"
+        android:layout_weight="1"
+        tools:srcCompat="@tools:sample/avatars[2]" />
+</LinearLayout>

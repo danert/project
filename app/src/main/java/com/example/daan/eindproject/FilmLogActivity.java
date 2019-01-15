@@ -33,17 +33,17 @@ public class FilmLogActivity extends AppCompatActivity {
         movieInfo = (MovieInfo) intent.getSerializableExtra("movieInfo");
         TextView titleView = findViewById(R.id.titleView);
         titleView.setText(movieInfo.getReleaseTitle());
+    }
+
+    // add film log to database
+    public void submitLog(View v) {
 
         // grab rating and review text
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         starRating = ratingBar.getRating();
 
-        EditText reviewTextView = findViewById(R.id.reviewText);
+        EditText reviewTextView = (EditText) findViewById(R.id.reviewText);
         reviewText = reviewTextView.getText().toString();
-    }
-
-    // add film log to database
-    public void submitLog(View v) {
 
         // add film log to database
         // DAAN IS TEST, MOET LATER VERVANGER WORDEN DOOR VARIABELE VOOR GEBRUIKERSNAAM

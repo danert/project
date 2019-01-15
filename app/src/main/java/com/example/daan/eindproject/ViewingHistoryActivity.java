@@ -16,7 +16,7 @@ public class ViewingHistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().setTitle("Kijkgeschiedenis");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_history);
+        setContentView(R.layout.activity_viewing_history);
 
         // example list of movies for prototype, delete later
         ArrayList<String> exampleMovies = new ArrayList<String>();

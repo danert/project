@@ -3,6 +3,7 @@ package com.example.daan.eindproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -70,7 +71,7 @@ public class ViewingHistoryActivity extends AppCompatActivity {
             public void onResponse(JSONArray response) {
 
                 // prepare list to give to adapter
-                ArrayList<FilmReview> filmReviews = new ArrayList<FilmReview>();
+                ArrayList<FilmReview> filmReviews = new ArrayList<>();
 
                 // convert database entries to filmreviews
                 for (int i = 0; i < response.length(); i++) {
@@ -105,9 +106,8 @@ public class ViewingHistoryActivity extends AppCompatActivity {
                     }
 
                     // show viewing history to user
-                    ListView watchlistView = findViewById(R.id.watchlist);
                     ReviewAdapter adapter = new ReviewAdapter(getApplicationContext(), R.layout.filmreview, filmReviews);
-                    watchlistView.setAdapter(adapter);
+                    viewHistoryList.setAdapter(adapter);
                 }
             }
         }, new Response.ErrorListener() {

@@ -34,7 +34,7 @@ public class FilmReviewActivity extends AppCompatActivity {
         ImageView posterView = findViewById(R.id.posterView);
         String posterUrl = filmReview.getPosterUrl();
         String url = String.format("http://image.tmdb.org/t/p/w185/%s", posterUrl);
-        Picasso.with(getApplicationContext()).load(url).fit().into(posterView);
+        Picasso.with(this).load(url).into(posterView);
 
         // show star rating
         RatingBar ratingBar = findViewById(R.id.ratingBar2);

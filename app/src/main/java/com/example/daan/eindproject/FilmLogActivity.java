@@ -42,8 +42,20 @@ public class FilmLogActivity extends AppCompatActivity {
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         starRating = ratingBar.getRating();
 
+        // make sure user enters rating
+        if (starRating == 0) {
+            Toast.makeText(getApplicationContext(), "Please give the movie a rating!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         EditText reviewTextView = (EditText) findViewById(R.id.reviewText);
         reviewText = reviewTextView.getText().toString();
+
+        // make sure user enters text
+        if (reviewText.length() == 0) {
+            Toast.makeText(getApplicationContext(), "Please give the movie a review!", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         // add film log to database
         // DAAN IS TEST, MOET LATER VERVANGER WORDEN DOOR VARIABELE VOOR GEBRUIKERSNAAM

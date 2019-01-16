@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 public class FilmLogActivity extends AppCompatActivity {
 
@@ -33,6 +35,12 @@ public class FilmLogActivity extends AppCompatActivity {
         movieInfo = (MovieInfo) intent.getSerializableExtra("movieInfo");
         TextView titleView = findViewById(R.id.titleView);
         titleView.setText(movieInfo.getReleaseTitle());
+
+        // show poster
+        ImageView posterView = findViewById(R.id.posterView);
+        String posterUrl = movieInfo.getPosterUrl();
+        String url = String.format("http://image.tmdb.org/t/p/w185/%s", posterUrl);
+        Picasso.with(getApplicationContext()).load(url).fit().into(posterView);
     }
 
     // add film log to database

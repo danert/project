@@ -11,24 +11,33 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="31dp"
-        android:layout_weight="1"
+        android:layout_weight="0"
         android:text="TextView"
         android:textSize="20dp" />
 
     <RatingBar
         android:id="@+id/ratingBar"
         style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="3dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="38dp"
-        android:layout_weight="1"
+        android:layout_weight="0"
         android:numStars="5" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
 
     <ImageView
         android:id="@+id/posterView"
         android:layout_width="50dp"
         android:layout_height="70dp"
         android:layout_marginTop="14dp"
-        android:layout_weight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0"
         tools:srcCompat="@tools:sample/avatars[2]" />
 </LinearLayout>

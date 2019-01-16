@@ -22,3 +22,7 @@ Het project bestaat nu uit acht activities en één custom adapter. Ook heb ik e
 Vandaag heb ik me vooral gefocust op het werken met een database. De gebruiker is nu in staat om, na het opzoeken van een film, deze film toe te voegen aan zijn of haar watchlist. Deze worden online opgeslagen waarna de gebruiker de watchlist kan bekijken. Iedere gebruiker/profiel krijgt zijn eigen watchlist in de database, dus gebruiker 'daan' krijgt /daanwatchlist als 'site' toegewezen.  
 
 De database krijgt waarschijnlijk een tabel waarin alle aangemaakte profielen/accounts worden opgeslagen (inclusief o.a. wachtwoord en aantal minuten aan film gekeken). Verder krijgt ieder profiel een aparte tabel voor de watchlist en kijkgeschiedenis.
+
+#### Dinsdag 15 januari
+
+Vandaag verder gewerkt met de online database. De gebruiker kan nu ook een film die bekeken is 'loggen' door deze een aantal sterren te geven met een eventuele recensie(tekst) erbij. Deze worden nu opgeslagen in de database.

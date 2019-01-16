@@ -24,6 +24,8 @@ import java.util.ArrayList;
 
 public class ViewingHistoryActivity extends AppCompatActivity {
 
+    ListView viewHistoryList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,25 +33,28 @@ public class ViewingHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewing_history);
 
+        viewHistoryList = findViewById(R.id.viewhistoryList);
         getViewingHistory();
+
+        viewHistoryList.setOnItemClickListener(new ListItemClickListener());
 
     }
 
     // listens if movie from view history is clicked
-//    private class ListItemClickListener implements AdapterView.OnItemClickListener {
-//
-//        @Override
-//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//            // grabs movie title that has been clicked
-//            String movieTitle = (String) parent.getItemAtPosition(position);
-//
-//            // direct user to movie movie info activity
-//            Intent intent = new Intent(ViewingHistoryActivity.this, FilmReviewActivity.class);
-//            intent.putExtra("movieTitle", movieTitle);
-//            startActivity(intent);
-//        }
-//    }
+    private class ListItemClickListener implements AdapterView.OnItemClickListener {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            // grabs movie that has been clicked
+            FilmReview filmReview = (FilmReview) parent.getItemAtPosition(position);
+
+            // direct user to movie review activity
+            Intent intent = new Intent(ViewingHistoryActivity.this, FilmReviewActivity.class);
+            intent.putExtra("filmReview", filmReview);
+            startActivity(intent);
+        }
+    }
 
     // grabs viewing history of user from database
     public void getViewingHistory() {
@@ -102,7 +107,6 @@ public class ViewingHistoryActivity extends AppCompatActivity {
                     }
 
                     // show viewing history to user
-                    ListView viewHistoryList = findViewById(R.id.viewhistoryList);
                     ReviewAdapter adapter = new ReviewAdapter(getApplicationContext(), R.layout.filmreview, filmReviews);
                     viewHistoryList.setAdapter(adapter);
                 }

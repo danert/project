@@ -14,13 +14,13 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class ReviewAdapter extends ArrayAdapter<MovieInfo> {
+public class ReviewAdapter extends ArrayAdapter<FilmReview> {
 
     ArrayList<FilmReview> filmReviews;
 
     // constructor
     public ReviewAdapter(Context context, int resource, ArrayList<FilmReview> filmReviews) {
-        super(context, resource);
+        super(context, resource, filmReviews);
         this.filmReviews = filmReviews;
     }
 
@@ -36,12 +36,14 @@ public class ReviewAdapter extends ArrayAdapter<MovieInfo> {
         // set name and release year of movie
         TextView titleView = convertView.findViewById(R.id.titleView);
         String releaseTitle = filmReview.getReleaseTitle();
+        Log.i("releaseTitle", releaseTitle);
         titleView.setText(releaseTitle);
 
         // set movie poster
         String posterUrl = filmReview.getPosterUrl();
         String url = String.format("http://image.tmdb.org/t/p/w185/%s", posterUrl);
         ImageView posterView = convertView.findViewById(R.id.posterView);
+        Picasso.with(getContext()).load(url).fit().into(posterView);
 
         // https://stackoverflow.com/questions/43971819/android-how-to-set-an-image-to-an-imageview-from-a-url-programatically
         Picasso.with(getContext()).load(url).fit().into(posterView);

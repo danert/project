@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 public class ViewingHistoryActivity extends AppCompatActivity {
 
-    ListView viewHistoryList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,27 +33,23 @@ public class ViewingHistoryActivity extends AppCompatActivity {
 
         getViewingHistory();
 
-        viewHistoryList = findViewById(R.id.viewhistoryList);
-
-        // set listener for listview
-        viewHistoryList.setOnItemClickListener(new ListItemClickListener());
     }
 
     // listens if movie from view history is clicked
-    private class ListItemClickListener implements AdapterView.OnItemClickListener {
-
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            // grabs movie title that has been clicked
-            String movieTitle = (String) parent.getItemAtPosition(position);
-
-            // direct user to movie movie info activity
-            Intent intent = new Intent(ViewingHistoryActivity.this, FilmReviewActivity.class);
-            intent.putExtra("movieTitle", movieTitle);
-            startActivity(intent);
-        }
-    }
+//    private class ListItemClickListener implements AdapterView.OnItemClickListener {
+//
+//        @Override
+//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//            // grabs movie title that has been clicked
+//            String movieTitle = (String) parent.getItemAtPosition(position);
+//
+//            // direct user to movie movie info activity
+//            Intent intent = new Intent(ViewingHistoryActivity.this, FilmReviewActivity.class);
+//            intent.putExtra("movieTitle", movieTitle);
+//            startActivity(intent);
+//        }
+//    }
 
     // grabs viewing history of user from database
     public void getViewingHistory() {
@@ -69,6 +64,7 @@ public class ViewingHistoryActivity extends AppCompatActivity {
             // when viewing history was received
             @Override
             public void onResponse(JSONArray response) {
+
 
                 // prepare list to give to adapter
                 ArrayList<FilmReview> filmReviews = new ArrayList<>();
@@ -106,6 +102,7 @@ public class ViewingHistoryActivity extends AppCompatActivity {
                     }
 
                     // show viewing history to user
+                    ListView viewHistoryList = findViewById(R.id.viewhistoryList);
                     ReviewAdapter adapter = new ReviewAdapter(getApplicationContext(), R.layout.filmreview, filmReviews);
                     viewHistoryList.setAdapter(adapter);
                 }

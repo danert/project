@@ -61,7 +61,7 @@ public class HomepageActivity extends AppCompatActivity {
         // grab user progress from database (DAAN NOG VERANDEREN NAAR USERNAME LATER)
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url = "https://ide50-danert.legacy.cs50.io:8080/daanprogression";
+        String url = "https://ide50-danert.legacy.cs50.io:8080/daanviewinghistory";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
@@ -69,30 +69,23 @@ public class HomepageActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
 
-                try {
-                    // get amount of movies watched
-                    JSONObject userProgression = response.getJSONObject(0);
-                    int moviesWatched = Integer.valueOf(userProgression.getString("moviesWatched"));
+                // get amount of movies watched
+                int moviesWatched = response.length();
 
-                    // calculate and show level (USERNAME NOG VERANDEREN)
-                    int userLevel = (moviesWatched / 10) + 1;
-                    TextView profileText = findViewById(R.id.profileText);
-                    profileText.setText(String.format("Daan (lvl %d)", userLevel));
+                // calculate and show level (USERNAME NOG VERANDEREN)
+                int userLevel = (moviesWatched / 10) + 1;
+                TextView profileText = findViewById(R.id.profileText);
+                profileText.setText(String.format("Daan (lvl %d)", userLevel));
 
-                    // show remaining progress to level up in progressbar
-                    int moviesSingleDigit = moviesWatched % 10;
-                    ProgressBar progressBar = findViewById(R.id.progressBar);
-                    progressBar.setProgress(moviesSingleDigit);
+                // show remaining progress to level up in progressbar
+                int moviesSingleDigit = moviesWatched % 10;
+                ProgressBar progressBar = findViewById(R.id.progressBar);
+                progressBar.setProgress(moviesSingleDigit);
 
-                    // show how many movies user needs to watch to level up
-                    int nextLevel = (userLevel) * 10;
-                    TextView moviesLeft = findViewById(R.id.moviesLeft);
-                    moviesLeft.setText(String.format("%d/%d", moviesWatched, nextLevel));
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
+                // show how many movies user needs to watch to level up
+                int nextLevel = (userLevel) * 10;
+                TextView moviesLeft = findViewById(R.id.moviesLeft);
+                moviesLeft.setText(String.format("%d/%d", moviesWatched, nextLevel));
             }
         }, new Response.ErrorListener() {
             @Override
@@ -102,5 +95,13 @@ public class HomepageActivity extends AppCompatActivity {
         });
         queue.add(jsonArrayRequest);
 
+    }
+
+    // updates progress when coming from another activity
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        showProgress();
     }
 }

@@ -26,3 +26,7 @@ De database krijgt waarschijnlijk een tabel waarin alle aangemaakte profielen/ac
 #### Dinsdag 15 januari
 
 Vandaag verder gewerkt met de online database. De gebruiker kan nu ook een film die bekeken is 'loggen' door deze een aantal sterren te geven met een eventuele recensie(tekst) erbij. Deze worden nu opgeslagen in de database.
+
+#### Woensdag 16 januari
+
+De gebruiker kan nu een overzicht krijgen met gemaakte logs/recensies. Ook kan de gebruiker nu op de homepage zien welk 'level' hij is, en hoeveel films er nog bekeken/gelogd moeten worden om het volgende level te bereiken. De gebruiker gaat bij iedere 10 gekeken films een level omhoog. Bijna alle main features van de app zijn nu compleet.

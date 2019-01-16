@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.android.volley.Request;
 import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;

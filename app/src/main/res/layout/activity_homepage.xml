@@ -25,16 +25,25 @@
         android:layout_width="361dp"
         android:layout_height="62dp"
         android:layout_gravity="center"
-        android:progress="60"
+        android:max="10"
+        android:progress="0"
         android:scaleY="9" />
+
+    <TextView
+        android:id="@+id/moviesLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="TextView"
+        android:textSize="17dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:onClick="pageClicked"
         android:paddingLeft="14dp"
-        android:paddingTop="40dp"
         android:paddingBottom="20dp"
         android:text="Kijkgeschiedenis"
         android:textSize="40dp" />
@@ -43,15 +52,16 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:onClick="pageClicked"
         android:paddingLeft="14dp"
-        android:paddingBottom="20dp"
+        android:paddingBottom="0dp"
         android:text="Watchlist"
         android:textSize="40dp" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="406dp"
         android:layout_height="wrap_content"
         android:onClick="pageClicked"
         android:paddingLeft="14dp"

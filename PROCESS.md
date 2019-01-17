@@ -30,3 +30,7 @@ Vandaag verder gewerkt met de online database. De gebruiker kan nu ook een film 
 #### Woensdag 16 januari
 
 De gebruiker kan nu een overzicht krijgen met gemaakte logs/recensies. Ook kan de gebruiker nu op de homepage zien welk 'level' hij is, en hoeveel films er nog bekeken/gelogd moeten worden om het volgende level te bereiken. De gebruiker gaat bij iedere 10 gekeken films een level omhoog. Bijna alle main features van de app zijn nu compleet.
+
+#### Donderdag 17 januari
+
+Vandaag is het (eindelijk) gelukt om een bug te fixen waardoor de app vaak crashte bij het zoeken naar films. Bij sommige zoekresultaten is er namelijk geen datum bekend waarop de film is uitgekomen. Deze films laten voortaan alleen hun titel zien bij de app (zonder jaar van uitgave). Verder heb ik de functie om films te verwijderen uit de watchlist (en dus de database) geïmplementeerd. Deze werkt helaas net aan niet door een vervelende bug. 

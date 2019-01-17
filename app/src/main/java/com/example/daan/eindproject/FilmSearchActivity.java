@@ -3,6 +3,7 @@ package com.example.daan.eindproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -70,16 +71,25 @@ public class FilmSearchActivity extends AppCompatActivity {
 
                         // grab movie title and release year from suggestion
                         String movieTitle = suggestion.getString("title");
+                        Log.i("movieTitle", movieTitle);
 
-                        // try catch to prevent error, but might cause no title to appear?
-                        try {
-                            String releaseDate = suggestion.getString("release_date");
-                            String releaseYear = releaseDate.substring(0, 4);
-                            String releaseTitle = String.format("%s (%s)", movieTitle, releaseYear);
-                            movieInfo.setReleaseTitle(releaseTitle);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                        // grab release date
+                        String releaseDate = suggestion.getString("release_date");
+                        Log.i("releaseDate", releaseDate);
+
+                        String releaseTitle;
+
+                        // if release date is unknown, change releasetitle to just the movie title
+                        if (releaseDate.isEmpty()) {
+                            releaseTitle = movieTitle;
                         }
+
+                        else {
+                            String releaseYear = releaseDate.substring(0, 4);
+                            releaseTitle = String.format("%s (%s)", movieTitle, releaseYear);
+                        }
+
+                        movieInfo.setReleaseTitle(releaseTitle);
 
                         // grab poster url from suggestion
                         String posterUrl = suggestion.getString("poster_path");

@@ -36,7 +36,6 @@ public class WatchlistActivity extends AppCompatActivity {
 
         // set listener for listview
         watchlistView.setOnItemClickListener(new ListItemClickListener());
-
     }
 
     // listens if movie from watchlist is clicked
@@ -51,6 +50,9 @@ public class WatchlistActivity extends AppCompatActivity {
             // direct user to movie info activity
             Intent intent = new Intent(WatchlistActivity.this, MovieInfoActivity.class);
             intent.putExtra("movieInfo", movieInfo);
+
+            // let movie info activity know user came from watchlist
+            intent.putExtra("fromWatchlist", "yes");
             startActivity(intent);
         }
     }

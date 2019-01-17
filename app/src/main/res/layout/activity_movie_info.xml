@@ -44,19 +44,19 @@
 
     <Button
         android:id="@+id/addWatchlist"
-        android:layout_width="202dp"
+        android:layout_width="wrap_content"
         android:layout_height="54dp"
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="addWatchlist"
+        android:onClick="changeWatchlist"
         android:text="voeg toe aan watchlist"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="202dp"
+        android:layout_width="wrap_content"
         android:layout_height="54dp"
         android:layout_gravity="center"
         android:layout_marginStart="8dp"

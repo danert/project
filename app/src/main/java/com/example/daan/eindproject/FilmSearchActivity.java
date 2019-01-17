@@ -71,11 +71,9 @@ public class FilmSearchActivity extends AppCompatActivity {
 
                         // grab movie title and release year from suggestion
                         String movieTitle = suggestion.getString("title");
-                        Log.i("movieTitle", movieTitle);
 
                         // grab release date
                         String releaseDate = suggestion.getString("release_date");
-                        Log.i("releaseDate", releaseDate);
 
                         String releaseTitle;
 

@@ -84,7 +84,7 @@ public class MovieInfoActivity extends AppCompatActivity {
         Button button = (Button) v;
         String text = button.getText().toString();
 
-        // DAAN VERVANGEN DOOR GEBRUIKERSNAAM LATER!!!
+        // DAAN NOG VERVANGEN DOOR USERNAME LATER
         String url = "https://ide50-danert.legacy.cs50.io:8080/daanwatchlist";
 
         // add movie to watchlist

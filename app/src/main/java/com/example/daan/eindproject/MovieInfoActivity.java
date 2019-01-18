@@ -72,7 +72,7 @@ public class MovieInfoActivity extends AppCompatActivity {
 
         Intent intent = new Intent(MovieInfoActivity.this, FilmLogActivity.class);
 
-        // give movie title and poster to intent
+        // give movie info to intent
         intent.putExtra("movieInfo", movieInfo);
         startActivity(intent);
     }
@@ -83,11 +83,15 @@ public class MovieInfoActivity extends AppCompatActivity {
         // check if movie needs to be added or removed
         Button button = (Button) v;
         String text = button.getText().toString();
+
+        // DAAN VERVANGEN DOOR GEBRUIKERSNAAM LATER!!!
+        String url = "https://ide50-danert.legacy.cs50.io:8080/daanwatchlist";
+
+        // add movie to watchlist
         if (text.equals("voeg toe aan watchlist")) {
 
-            // DAAN IS TEST, MOET LATER VERVANGER WORDEN DOOR VARIABELE VOOR GEBRUIKERSNAAM
-            String url = "https://ide50-danert.legacy.cs50.io:8080/daanwatchlist";
-            RequestQueue queue = Volley.newRequestQueue(this);
+            // add movie to watchlist
+            RequestQueue addQueue = Volley.newRequestQueue(this);
             WatchlistPostRequest request = new WatchlistPostRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -98,7 +102,7 @@ public class MovieInfoActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }, movieInfo);
-            queue.add(request);
+            addQueue.add(request);
         }
 
         // remove from watchlist
@@ -106,9 +110,6 @@ public class MovieInfoActivity extends AppCompatActivity {
 
             // check what the id of the movie is in database
             RequestQueue queue = Volley.newRequestQueue(this);
-
-            // DAAN VERVANGEN DOOR GEBRUIKERSNAAM LATER!!!
-            String url = "https://ide50-danert.legacy.cs50.io:8080/daanwatchlist";
 
             JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
@@ -161,6 +162,7 @@ public class MovieInfoActivity extends AppCompatActivity {
                             }
                     );
                     deleteQueue.add(dr);
+
                 }
             }, new Response.ErrorListener() {
                 @Override

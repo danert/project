@@ -18,6 +18,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
+import java.util.concurrent.TimeUnit;
+
 public class FilmLogActivity extends AppCompatActivity {
 
     MovieInfo movieInfo;
@@ -81,9 +83,15 @@ public class FilmLogActivity extends AppCompatActivity {
         }, movieInfo, starRating, reviewText);
         queue.add(request);
 
+        // test delay to make sure progressbar has time to update
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         // move back to homepage
         Intent intent = new Intent(FilmLogActivity.this, HomepageActivity.class);
         startActivity(intent);
-
     }
 }

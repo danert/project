@@ -10,9 +10,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -21,8 +23,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class FilmSearchActivity extends AppCompatActivity {
+
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,13 +140,60 @@ public class FilmSearchActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            // grabs film suggestion that has been clicked
-            MovieInfo movieInfo = (MovieInfo) parent.getItemAtPosition(position);
+            // prepare intent
+            intent = new Intent(FilmSearchActivity.this, MovieInfoActivity.class);
 
-            // direct user to movie info activity
-            Intent intent = new Intent(FilmSearchActivity.this, MovieInfoActivity.class);
-            intent.putExtra("movieInfo", movieInfo);
-            startActivity(intent);
+            // grabs film suggestion that has been clicked
+            final MovieInfo movieInfo = (MovieInfo) parent.getItemAtPosition(position);
+
+            // check if movie is in watchlist
+            RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+
+            // DAAN VERVANGEN DOOR GEBRUIKERSNAAM LATER!!!
+            String url = "https://ide50-danert.legacy.cs50.io:8080/daanwatchlist";
+
+            JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+
+                // when watchlist was received
+                @Override
+                public void onResponse(JSONArray response) {
+
+                    String movieId = movieInfo.getMovieId();
+
+                    // check every entry
+                    for (int i = 0; i < response.length(); i++) {
+
+                        try {
+
+                            // grab entry
+                            JSONObject movieEntry = response.getJSONObject(i);
+
+                            // grab movie id that needs to be checked
+                            String checkId = movieEntry.getString("movieId");
+
+                            // if right movie id, stop searching and let next activity know movie is already in watchlist
+                            if (movieId.equals(checkId)) {
+
+                                intent.putExtra("fromWatchlist", "yes");
+                                break;
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    // direct user to movie info activity
+                    intent.putExtra("movieInfo", movieInfo);
+                    startActivity(intent);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
+            queue.add(jsonArrayRequest);
         }
     }
 }

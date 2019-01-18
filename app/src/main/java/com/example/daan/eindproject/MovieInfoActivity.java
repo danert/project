@@ -26,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class MovieInfoActivity extends AppCompatActivity {
 
@@ -138,6 +139,28 @@ public class MovieInfoActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
+
+                    // request to delete movie entry (https://www.itsalif.info/content/android-volley-tutorial-http-get-post-put)
+                    RequestQueue deleteQueue = Volley.newRequestQueue(getApplicationContext());
+
+                    String deleteUrl = String.format("https://ide50-danert.legacy.cs50.io:8080/daanwatchlist/%d", removalId);
+
+                    StringRequest dr = new StringRequest(Request.Method.DELETE, deleteUrl,
+                            new Response.Listener<String>()
+                            {
+                                @Override
+                                public void onResponse(String response) {
+                                }
+                            },
+                            new Response.ErrorListener()
+                            {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            }
+                    );
+                    deleteQueue.add(dr);
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -146,31 +169,6 @@ public class MovieInfoActivity extends AppCompatActivity {
                 }
             });
             queue.add(jsonArrayRequest);
-
-            // request to delete movie entry (https://www.itsalif.info/content/android-volley-tutorial-http-get-post-put)
-            RequestQueue deleteQueue = Volley.newRequestQueue(this);
-
-            Log.i("removalId", Integer.toString(removalId));
-
-            String deleteUrl = String.format("https://ide50-danert.legacy.cs50.io:8080/daanwatchlist/%d", removalId);
-            Log.i("deleteUrl", deleteUrl);
-
-            StringRequest dr = new StringRequest(Request.Method.DELETE, deleteUrl,
-                    new Response.Listener<String>()
-                    {
-                        @Override
-                        public void onResponse(String response) {
-                        }
-                    },
-                    new Response.ErrorListener()
-                    {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-            );
-            deleteQueue.add(dr);
         }
 
         // move back to homepage

@@ -63,7 +63,7 @@ public class FilmLogActivity extends AppCompatActivity {
 
         // make sure user enters text
         if (reviewText.length() == 0) {
-            Toast.makeText(getApplicationContext(), "Please give the movie a review!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please give the movie a review!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -78,7 +78,7 @@ public class FilmLogActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }, movieInfo, starRating, reviewText);
         queue.add(request);

@@ -146,41 +146,21 @@ public class FilmSearchActivity extends AppCompatActivity {
             // grabs film suggestion that has been clicked
             final MovieInfo movieInfo = (MovieInfo) parent.getItemAtPosition(position);
 
-            // check if movie is in watchlist
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
+            // check if movie is in watchlist
             // DAAN VERVANGEN DOOR GEBRUIKERSNAAM LATER!!!
-            String url = "https://ide50-danert.legacy.cs50.io:8080/daanwatchlist";
+            String url = String.format("https://ide50-danert.legacy.cs50.io:8080/daanwatchlist?movieId=%s", movieInfo.getMovieId());
 
             JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
-                // when watchlist was received
                 @Override
                 public void onResponse(JSONArray response) {
 
-                    String movieId = movieInfo.getMovieId();
+                    // if movie in watchlist, let next activity know
+                    if (response.length() != 0) {
 
-                    // check every entry
-                    for (int i = 0; i < response.length(); i++) {
-
-                        try {
-
-                            // grab entry
-                            JSONObject movieEntry = response.getJSONObject(i);
-
-                            // grab movie id that needs to be checked
-                            String checkId = movieEntry.getString("movieId");
-
-                            // if right movie id, stop searching and let next activity know movie is already in watchlist
-                            if (movieId.equals(checkId)) {
-
-                                intent.putExtra("fromWatchlist", "yes");
-                                break;
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        intent.putExtra("fromWatchlist", "yes");
                     }
 
                     // direct user to movie info activity

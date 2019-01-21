@@ -36,7 +36,6 @@ public class ReviewAdapter extends ArrayAdapter<FilmReview> {
         // set name and release year of movie
         TextView titleView = convertView.findViewById(R.id.titleView);
         String releaseTitle = filmReview.getReleaseTitle();
-        Log.i("releaseTitle", releaseTitle);
         titleView.setText(releaseTitle);
 
         // set movie poster

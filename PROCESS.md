@@ -34,3 +34,7 @@ De gebruiker kan nu een overzicht krijgen met gemaakte logs/recensies. Ook kan d
 #### Donderdag 17 januari
 
 Vandaag is het (eindelijk) gelukt om een bug te fixen waardoor de app vaak crashte bij het zoeken naar films. Bij sommige zoekresultaten is er namelijk geen datum bekend waarop de film is uitgekomen. Deze films laten voortaan alleen hun titel zien bij de app (zonder jaar van uitgave). Verder heb ik de functie om films te verwijderen uit de watchlist (en dus de database) geïmplementeerd. Deze werkt helaas net aan niet door een vervelende bug. 
+
+#### Vrijdag 17 januari
+
+Vandaag ben ik bezig geweest met het verwijderen van entries uit de database. Dit moet bijvoorbeeld gebeuren wanneer de gebruiker iets uit zijn/haar watchlist verwijdert of een film kijkt die in de watchlist staat. Verder heb ik besloten dat ik waarschijnlijk eerst het vriendensysteem van de app ga implementeren voordat ik aan 'achievements' ga beginnen, omdat het sociale aspect van de app mij belangrijker lijkt dan de achievements. Met het vriendensysteem zul je andere profielen kunnen volgen en hun progressie en gekeken films bekijken.

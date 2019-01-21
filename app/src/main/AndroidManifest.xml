@@ -24,6 +24,10 @@
         <activity android:name=".FilmLogActivity" />
         <activity android:name=".FilmReviewActivity" />
         <activity android:name=".FilmSearchActivity"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

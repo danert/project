@@ -14,6 +14,8 @@
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:fontFamily="@font/catamaran_medium"
+        android:gravity="center"
         android:paddingBottom="30dp"
         android:text="Filmtitel"
         android:textSize="35dp" />
@@ -30,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:numStars="5"
         android:paddingBottom="20dp" />
 

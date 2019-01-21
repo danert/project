@@ -51,6 +51,8 @@ public class FilmLogActivity extends AppCompatActivity {
         String posterUrl = movieInfo.getPosterUrl();
         String url = String.format("http://image.tmdb.org/t/p/w185/%s", posterUrl);
         Picasso.with(getApplicationContext()).load(url).fit().into(posterView);
+
+        removalId = 0;
     }
 
     // add film log to database
@@ -91,86 +93,32 @@ public class FilmLogActivity extends AppCompatActivity {
         }, movieInfo, starRating, reviewText);
         queue.add(request);
 
-        // test delay to make sure progressbar has time to update
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
-        // if movie in watchlist, remove it from watchlist
-        if (checkWatchlist() != 0) {
 
-            Log.i("AJDHAHDKBAWKUDGWAUGDAWUDWAGYY", "AIUDHAWUIWUIWADH");
+        // check if movie is in watchlist
+        RequestQueue checkQueue = Volley.newRequestQueue(this);
 
-            // request to delete movie entry (https://www.itsalif.info/content/android-volley-tutorial-http-get-post-put)
-            RequestQueue deleteQueue = Volley.newRequestQueue(getApplicationContext());
-
-            String deleteUrl = String.format("https://ide50-danert.legacy.cs50.io:8080/daanwatchlist/%d", removalId);
-
-            StringRequest dr = new StringRequest(Request.Method.DELETE, deleteUrl,
-                    new Response.Listener<String>()
-                    {
-                        @Override
-                        public void onResponse(String response) {
-                        }
-                    },
-                    new Response.ErrorListener()
-                    {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-            );
-            deleteQueue.add(dr);
-        }
-
-        // move back to homepage
-        Intent intent = new Intent(FilmLogActivity.this, HomepageActivity.class);
-        startActivity(intent);
-    }
-
-    // check if movie is in watchlist, if it is it returns the corresponding id, if it isn't it returns 0
-    public int checkWatchlist() {
-
-        removalId = 0;
-
-        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-
-        // DAAN VERVANGEN DOOR GEBRUIKERSNAAM LATER!!!
-        String url = "https://ide50-danert.legacy.cs50.io:8080/daanwatchlist";
+        // set right url to look up specific movie
+        url = String.format("https://ide50-danert.legacy.cs50.io:8080/daanwatchlist?movieId=%s", movieInfo.getMovieId());
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
-            // when watchlist was received
             @Override
             public void onResponse(JSONArray response) {
 
-                String movieId = movieInfo.getMovieId();
+                try {
 
-                // check every entry
-                for (int i = 0; i < response.length(); i++) {
+                    // if movie in watchlist, remove it
+                    if (response.length() != 0) {
 
-                    try {
-
-                        // grab entry
-                        JSONObject movieEntry = response.getJSONObject(i);
-
-                        // grab movie id that needs to be checked
-                        String checkId = movieEntry.getString("movieId");
-
-                        // if right movie id, stop searching
-                        if (movieId.equals(checkId)) {
-
-                            removalId = movieEntry.getInt("id");
-                            break;
-                        }
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                        JSONObject movie = response.getJSONObject(0);
+                        removalId = movie.getInt("id");
+                        deleteEntry();
                     }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -178,9 +126,43 @@ public class FilmLogActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-        queue.add(jsonArrayRequest);
+        checkQueue.add(jsonArrayRequest);
 
-        Log.i("removalId", Integer.toString(removalId));
-        return removalId;
+        // test delay to make sure progressbar has time to update
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // move back to homepage
+        Intent intent = new Intent(FilmLogActivity.this, HomepageActivity.class);
+        startActivity(intent);
+    }
+
+    // remove movie from watchlist
+    public void deleteEntry () {
+
+        // request to delete movie entry (https://www.itsalif.info/content/android-volley-tutorial-http-get-post-put)
+        RequestQueue deleteQueue = Volley.newRequestQueue(getApplicationContext());
+
+        String deleteUrl = String.format("https://ide50-danert.legacy.cs50.io:8080/daanwatchlist/%d", removalId);
+
+        StringRequest dr = new StringRequest(Request.Method.DELETE, deleteUrl,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+        deleteQueue.add(dr);
     }
 }

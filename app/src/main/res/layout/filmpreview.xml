@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:fontFamily="@font/catamaran_medium"
         android:paddingLeft="10dp"
         android:paddingTop="30dp"
         android:text="film (jaar)"
@@ -20,7 +21,7 @@
 
     <ImageView
         android:id="@+id/posterView"
-        android:layout_width="66dp"
+        android:layout_width="54dp"
         android:layout_height="68dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"

@@ -111,34 +111,20 @@ public class MovieInfoActivity extends AppCompatActivity {
             // check what the id of the movie is in database
             RequestQueue queue = Volley.newRequestQueue(this);
 
+            // set right url to look up specific movie
+            url = String.format("https://ide50-danert.legacy.cs50.io:8080/daanwatchlist?movieId=%s", movieInfo.getMovieId());
+
             JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
-                // when watchlist was received
+                // when movie was received
                 @Override
                 public void onResponse(JSONArray response) {
 
-                    String movieId = movieInfo.getMovieId();
-
-                    // check every entry for right id
-                    for (int i = 0; i < response.length(); i++) {
-
-                        try {
-                            // grab entry
-                            JSONObject movieEntry = response.getJSONObject(i);
-
-                            // check if movie id is the right one
-                            String checkId = movieEntry.getString("movieId");
-
-                            // if right movie id, save id and stop searching
-                            if (movieId.equals(checkId)) {
-
-                                removalId = movieEntry.getInt("id");
-                                break;
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                    try {
+                        JSONObject movie = response.getJSONObject(0);
+                        removalId = movie.getInt("id");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
 
                     // request to delete movie entry (https://www.itsalif.info/content/android-volley-tutorial-http-get-post-put)

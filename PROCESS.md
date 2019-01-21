@@ -37,4 +37,12 @@ Vandaag is het (eindelijk) gelukt om een bug te fixen waardoor de app vaak crash
 
 #### Vrijdag 17 januari
 
-Vandaag ben ik bezig geweest met het verwijderen van entries uit de database. Dit moet bijvoorbeeld gebeuren wanneer de gebruiker iets uit zijn/haar watchlist verwijdert of een film kijkt die in de watchlist staat. Verder heb ik besloten dat ik waarschijnlijk eerst het vriendensysteem van de app ga implementeren voordat ik aan 'achievements' ga beginnen, omdat het sociale aspect van de app mij belangrijker lijkt dan de achievements. Met het vriendensysteem zul je andere profielen kunnen volgen en hun progressie en gekeken films bekijken.
+Vandaag ben ik bezig geweest met het verwijderen van entries uit de database. Dit moet bijvoorbeeld gebeuren wanneer de gebruiker iets uit zijn/haar watchlist verwijdert of een film kijkt die in de watchlist staat. Je kunt nu al films verwijderen uit je watchlist. Verder heb ik besloten dat ik waarschijnlijk eerst het vriendensysteem van de app ga implementeren voordat ik aan 'achievements' ga beginnen, omdat het sociale aspect van de app mij belangrijker lijkt dan de achievements. Met het vriendensysteem zul je andere profielen kunnen volgen en hun progressie en gekeken films bekijken.
+
+#### Maandag 21 januari
+
+Vandaag ben ik verder gegaan met het verwijderen van entries uit de database. Als je een film kijkt die in je watchlist staat, wordt deze nu ook automatisch verwijderd uit de watchlist. Door de filterfunctie van de rester-server te implementeren is mijn code voor het verwijderen van entries uit de database een stuk korter geworden aangezien je niet meer alle entries af hoeft te gaan om (het id van) een film te vinden. Verder heb ik ook het design van de app wat verbeterd door kleuren en lettertypen te veranderen. De app is nu al een stuk fijner om naar te kijken, maar het het uiteindelijke design van de app zal er nog een stuk beter uit gaan zien (is de bedoeling :)). 
+
+<img src="/doc/firstdesign.jpg" width="250">
+
+De gebruiker kan films meerdere keren 'loggen' en voor iedere keer toch progressiepunten verdienen. Ik was eerst van plan om de gebruiker iedere film maar één keer te laten loggen, maar ik heb besloten dat het kijken van een film die je al eerder hebt gezien toch ook 'gewoon telt'. Om te benadrukken dat het gaat om verschillende kijkbeurten zal ik nog implementeren dat iedere recensie ook een datum toont waarop de film is bekeken.

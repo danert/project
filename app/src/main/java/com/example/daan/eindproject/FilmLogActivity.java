@@ -93,8 +93,6 @@ public class FilmLogActivity extends AppCompatActivity {
         }, movieInfo, starRating, reviewText);
         queue.add(request);
 
-
-
         // check if movie is in watchlist
         RequestQueue checkQueue = Volley.newRequestQueue(this);
 

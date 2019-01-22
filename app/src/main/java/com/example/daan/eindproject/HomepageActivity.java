@@ -57,6 +57,7 @@ public class HomepageActivity extends AppCompatActivity {
         }
 
         // go to page
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 

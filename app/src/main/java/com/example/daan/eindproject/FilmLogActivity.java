@@ -31,7 +31,7 @@ public class FilmLogActivity extends AppCompatActivity {
 
     MovieInfo movieInfo;
     float starRating;
-    String reviewText;
+    String reviewText, username;
     int removalId;
 
     @Override
@@ -78,8 +78,7 @@ public class FilmLogActivity extends AppCompatActivity {
         }
 
         // add film log to database
-        // DAAN IS TEST, MOET LATER VERVANGER WORDEN DOOR VARIABELE VOOR GEBRUIKERSNAAM
-        String url = "https://ide50-danert.legacy.cs50.io:8080/daanviewinghistory";
+        String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%sviewinghistory", username);
         RequestQueue queue = Volley.newRequestQueue(this);
         ViewingHistoryPostRequest request = new ViewingHistoryPostRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -97,7 +96,7 @@ public class FilmLogActivity extends AppCompatActivity {
         RequestQueue checkQueue = Volley.newRequestQueue(this);
 
         // set right url to look up specific movie
-        url = String.format("https://ide50-danert.legacy.cs50.io:8080/daanwatchlist?movieId=%s", movieInfo.getMovieId());
+        url = String.format("https://ide50-danert.legacy.cs50.io:8080/%swatchlist?movieId=%s", username, movieInfo.getMovieId());
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
@@ -144,7 +143,7 @@ public class FilmLogActivity extends AppCompatActivity {
         // request to delete movie entry (https://www.itsalif.info/content/android-volley-tutorial-http-get-post-put)
         RequestQueue deleteQueue = Volley.newRequestQueue(getApplicationContext());
 
-        String deleteUrl = String.format("https://ide50-danert.legacy.cs50.io:8080/daanwatchlist/%d", removalId);
+        String deleteUrl = String.format("https://ide50-danert.legacy.cs50.io:8080/%swatchlist/%d", username, removalId);
 
         StringRequest dr = new StringRequest(Request.Method.DELETE, deleteUrl,
                 new Response.Listener<String>()

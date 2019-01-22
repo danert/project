@@ -28,12 +28,15 @@ import java.util.concurrent.TimeUnit;
 public class FilmSearchActivity extends AppCompatActivity {
 
     Intent intent;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().setTitle("Zoeken");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_film_search);
+
+        username = getIntent().getStringExtra("username");
     }
 
 
@@ -149,8 +152,7 @@ public class FilmSearchActivity extends AppCompatActivity {
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
             // check if movie is in watchlist
-            // DAAN VERVANGEN DOOR GEBRUIKERSNAAM LATER!!!
-            String url = String.format("https://ide50-danert.legacy.cs50.io:8080/daanwatchlist?movieId=%s", movieInfo.getMovieId());
+            String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%swatchlist?movieId=%s", username, movieInfo.getMovieId());
 
             JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
@@ -165,6 +167,7 @@ public class FilmSearchActivity extends AppCompatActivity {
 
                     // direct user to movie info activity
                     intent.putExtra("movieInfo", movieInfo);
+                    intent.putExtra("username", username);
                     startActivity(intent);
                 }
             }, new Response.ErrorListener() {

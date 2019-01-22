@@ -23,12 +23,15 @@ import java.util.ArrayList;
 
 public class WatchlistActivity extends AppCompatActivity {
 
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().setTitle("Watchlist");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_watchlist);
+
+        username = getIntent().getStringExtra("username");
 
         ListView watchlistView = findViewById(R.id.watchlist);
 
@@ -63,7 +66,7 @@ public class WatchlistActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
 
         // DAAN VERVANGEN DOOR GEBRUIKERSNAAM LATER!!!
-        String url = "https://ide50-danert.legacy.cs50.io:8080/daanwatchlist";
+        String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%swatchlist", username);
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 

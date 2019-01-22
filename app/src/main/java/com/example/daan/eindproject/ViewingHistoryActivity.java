@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class ViewingHistoryActivity extends AppCompatActivity {
 
     ListView viewHistoryList;
-
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +33,12 @@ public class ViewingHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewing_history);
 
+        username = getIntent().getStringExtra("username");
+
         viewHistoryList = findViewById(R.id.viewhistoryList);
         getViewingHistory();
 
         viewHistoryList.setOnItemClickListener(new ListItemClickListener());
-
     }
 
     // listens if movie from view history is clicked
@@ -60,10 +61,7 @@ public class ViewingHistoryActivity extends AppCompatActivity {
     public void getViewingHistory() {
 
         RequestQueue queue = Volley.newRequestQueue(this);
-
-        // DAAN VERVANGEN DOOR GEBRUIKERSNAAM LATER!!!
-        String url = "https://ide50-danert.legacy.cs50.io:8080/daanviewinghistory";
-
+        String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%sviewinghistory", username);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
             // when viewing history was received

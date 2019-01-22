@@ -32,6 +32,7 @@ public class MovieInfoActivity extends AppCompatActivity {
 
     MovieInfo movieInfo;
     int removalId;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +40,10 @@ public class MovieInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_info);
 
-        // extract movie info from intent
+        // extract movie info and username from intent
         Intent intent = getIntent();
         movieInfo = (MovieInfo) intent.getSerializableExtra("movieInfo");
+        username = intent.getStringExtra("username");
 
         // show title and release year
         TextView titleView = findViewById(R.id.titleView);
@@ -83,9 +85,7 @@ public class MovieInfoActivity extends AppCompatActivity {
         // check if movie needs to be added or removed
         Button button = (Button) v;
         String text = button.getText().toString();
-
-        // DAAN NOG VERVANGEN DOOR USERNAME LATER
-        String url = "https://ide50-danert.legacy.cs50.io:8080/daanwatchlist";
+        String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%swatchlist", username);
 
         // add movie to watchlist
         if (text.equals("voeg toe aan watchlist")) {
@@ -112,7 +112,7 @@ public class MovieInfoActivity extends AppCompatActivity {
             RequestQueue queue = Volley.newRequestQueue(this);
 
             // set right url to look up specific movie
-            url = String.format("https://ide50-danert.legacy.cs50.io:8080/daanwatchlist?movieId=%s", movieInfo.getMovieId());
+            url = String.format("https://ide50-danert.legacy.cs50.io:8080/%swatchlist?movieId=%s", username, movieInfo.getMovieId());
 
             JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
@@ -130,7 +130,7 @@ public class MovieInfoActivity extends AppCompatActivity {
                     // request to delete movie entry (https://www.itsalif.info/content/android-volley-tutorial-http-get-post-put)
                     RequestQueue deleteQueue = Volley.newRequestQueue(getApplicationContext());
 
-                    String deleteUrl = String.format("https://ide50-danert.legacy.cs50.io:8080/daanwatchlist/%d", removalId);
+                    String deleteUrl = String.format("https://ide50-danert.legacy.cs50.io:8080/%swatchlist/%d", username, removalId);
 
                     StringRequest dr = new StringRequest(Request.Method.DELETE, deleteUrl,
                             new Response.Listener<String>()
@@ -161,6 +161,7 @@ public class MovieInfoActivity extends AppCompatActivity {
 
         // move back to homepage
         Intent intent = new Intent(MovieInfoActivity.this, HomepageActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 }

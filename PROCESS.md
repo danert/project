@@ -46,3 +46,11 @@ Vandaag ben ik verder gegaan met het verwijderen van entries uit de database. Al
 <img src="/doc/firstdesign.jpg" width="250">
 
 De gebruiker kan films meerdere keren 'loggen' en voor iedere keer toch progressiepunten verdienen. Ik was eerst van plan om de gebruiker iedere film maar één keer te laten loggen, maar ik heb besloten dat het kijken van een film die je al eerder hebt gezien toch ook 'gewoon telt'. Om te benadrukken dat het gaat om verschillende kijkbeurten zal ik nog implementeren dat iedere recensie ook een datum toont waarop de film is bekeken. Ook is de gebruiker in staat om een film die al bekeken is aan zijn/haar watchlist toe te voegen, omdat de gebruiker deze bijvoorbeeld nog een keer wil kijken of het gewoon lang geleden is dat de film is bekeken.
+
+#### Dinsdag 22 januari
+
+Als de gebruiker nu de app opent, moet deze inloggen voordat deze op de homepage terecht komt. Als de gebruiker nog geen account heeft kan deze er een aanmaken. Voordat deze functie geïmplementeerd was, zat er nog maar één profiel in de database (gehardcoded). Nu dit 'profielensysteem' in de app zit, wordt het ook makkelijker om de functie te implementeren dat men andere gebruikers kan gaan volgen. Nadeel is nu wel dat de gebruiker iedere keer dat de app wordt opgestart opnieuw moet inloggen. Het is de bedoeling dat dit nog verholpen wordt zodat de gebruiker maar één keer op een apparaat hoeft in te loggen.
+
+<img src="/doc/loginscreen.jpg" width="250">
+
+Op het loginscherm is nu een soort logo te zien. In werkelijkheid is dit eigenlijk een simpele TextView met een lettertype gevonden op internet (Timepiece). Later is het nog mogelijk om zelf een logo te ontwerpen, maar voor nu past dit logo goed bij (het design van) de app. 

@@ -78,7 +78,7 @@ public class HomepageActivity extends AppCompatActivity {
                 // get amount of movies watched
                 int moviesWatched = response.length();
 
-                // calculate and show level (USERNAME NOG VERANDEREN)
+                // calculate and show level
                 int userLevel = (moviesWatched / 10) + 1;
                 TextView profileText = findViewById(R.id.profileText);
                 profileText.setText(String.format("%s (lvl %d)", username, userLevel));
@@ -107,6 +107,9 @@ public class HomepageActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
 
         showProgress();
     }

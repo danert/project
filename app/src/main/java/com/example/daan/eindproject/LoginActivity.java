@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                         // if password is incorrect, notify user
                         else {
                             Toast.makeText(getApplicationContext(), "Verkeerd wachtwoord ingevuld!", Toast.LENGTH_SHORT).show();
+                            passwordView.setText("");
                         }
 
                     } catch (JSONException e) {

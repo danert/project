@@ -134,6 +134,7 @@ public class FilmLogActivity extends AppCompatActivity {
 
         // move back to homepage
         Intent intent = new Intent(FilmLogActivity.this, HomepageActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 

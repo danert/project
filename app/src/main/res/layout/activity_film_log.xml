@@ -22,8 +22,8 @@
 
     <ImageView
         android:id="@+id/posterView"
-        android:layout_width="86dp"
-        android:layout_height="94dp"
+        android:layout_width="132dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
         tools:srcCompat="@tools:sample/avatars[0]" />
 

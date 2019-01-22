@@ -95,4 +95,11 @@ public class LoginActivity extends AppCompatActivity {
         });
         queue.add(jsonArrayRequest);
     }
+
+    // moves user to register activity
+    public void registerClick(View v) {
+
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    }
 }

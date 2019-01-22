@@ -23,6 +23,8 @@ import java.util.ArrayList;
 
 public class HomepageActivity extends AppCompatActivity {
 
+    String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -31,6 +33,9 @@ public class HomepageActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
+
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
 
         showProgress();
     }
@@ -58,10 +63,10 @@ public class HomepageActivity extends AppCompatActivity {
     // fills in progress bar
     public void showProgress() {
 
-        // grab user progress from database (DAAN NOG VERANDEREN NAAR USERNAME LATER)
+        // grab user progress from database
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url = "https://ide50-danert.legacy.cs50.io:8080/daanviewinghistory";
+        String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%sviewinghistory", username);
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
@@ -75,7 +80,7 @@ public class HomepageActivity extends AppCompatActivity {
                 // calculate and show level (USERNAME NOG VERANDEREN)
                 int userLevel = (moviesWatched / 10) + 1;
                 TextView profileText = findViewById(R.id.profileText);
-                profileText.setText(String.format("Daan (lvl %d)", userLevel));
+                profileText.setText(String.format("%s (lvl %d)", username, userLevel));
 
                 // show remaining progress to level up in progressbar
                 int moviesSingleDigit = moviesWatched % 10;

@@ -42,11 +42,15 @@ public class RegisterActivity extends AppCompatActivity {
         final String password = passwordView.getText().toString();
         final String password2 = password2View.getText().toString();
 
+        // check if user has filled in everything
+        if (username.length() == 0 || password.length() == 0 || password2.length() == 0) {
+            Toast.makeText(getApplicationContext(), "Vul alle velden in!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         // check if username already exists
         RequestQueue queue = Volley.newRequestQueue(this);
-
         String url = String.format("https://ide50-danert.legacy.cs50.io:8080/profiles?username=%s", username);
-
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
             @Override

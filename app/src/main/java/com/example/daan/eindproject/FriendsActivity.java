@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -117,6 +119,12 @@ public class FriendsActivity extends AppCompatActivity {
                     }
                 }
 
+                // initialise adapter
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.textview, R.id.textView9, friendList);
+
+                // connect adapter to listview
+                ListView listView = findViewById(R.id.friendsList);
+                listView.setAdapter(arrayAdapter);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -125,7 +133,23 @@ public class FriendsActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonArrayRequest);
+    }
 
+    // listens if a friend is clicked
+    private class ListItemClickListener implements AdapterView.OnItemClickListener {
 
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            // grab name that has been clicked
+            String friendname = (String) parent.getItemAtPosition(position);
+
+            // direct user to movie info activity
+            Intent intent = new Intent(WatchlistActivity.this, MovieInfoActivity.class);
+            intent.putExtra("movieInfo", movieInfo);
+            intent.putExtra("username", username);
+            intent.putExtra("fromWatchlist", "yes");
+            startActivity(intent);
+        }
     }
 }

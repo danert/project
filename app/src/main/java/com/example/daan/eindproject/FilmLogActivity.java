@@ -46,6 +46,8 @@ public class FilmLogActivity extends AppCompatActivity {
         TextView titleView = findViewById(R.id.titleView);
         titleView.setText(movieInfo.getReleaseTitle());
 
+        username = intent.getStringExtra("username");
+
         // show poster
         ImageView posterView = findViewById(R.id.posterView);
         String posterUrl = movieInfo.getPosterUrl();
@@ -116,6 +118,10 @@ public class FilmLogActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+                // move back to homepage
+                Intent intent = new Intent(FilmLogActivity.this, HomepageActivity.class);
+                intent.putExtra("username", username);
+                startActivity(intent);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -124,18 +130,6 @@ public class FilmLogActivity extends AppCompatActivity {
             }
         });
         checkQueue.add(jsonArrayRequest);
-
-        // test delay to make sure progressbar has time to update
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        // move back to homepage
-        Intent intent = new Intent(FilmLogActivity.this, HomepageActivity.class);
-        intent.putExtra("username", username);
-        startActivity(intent);
     }
 
     // remove movie from watchlist

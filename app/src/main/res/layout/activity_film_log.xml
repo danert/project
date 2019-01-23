@@ -44,7 +44,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="Recensie"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
         android:paddingLeft="5dp"
         android:paddingRight="20dp" />
 

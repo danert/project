@@ -3,6 +3,7 @@ package com.example.daan.eindproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -53,8 +54,7 @@ public class WatchlistActivity extends AppCompatActivity {
             // direct user to movie info activity
             Intent intent = new Intent(WatchlistActivity.this, MovieInfoActivity.class);
             intent.putExtra("movieInfo", movieInfo);
-
-            // let movie info activity know user came from watchlist
+            intent.putExtra("username", username);
             intent.putExtra("fromWatchlist", "yes");
             startActivity(intent);
         }

@@ -76,6 +76,7 @@ public class MovieInfoActivity extends AppCompatActivity {
 
         // give movie info to intent
         intent.putExtra("movieInfo", movieInfo);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 

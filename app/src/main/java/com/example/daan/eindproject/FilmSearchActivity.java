@@ -39,7 +39,6 @@ public class FilmSearchActivity extends AppCompatActivity {
         username = getIntent().getStringExtra("username");
     }
 
-
     // if input is entered in search bar, show suggestions
     public void inputEntered(View v) {
 
@@ -137,7 +136,7 @@ public class FilmSearchActivity extends AppCompatActivity {
         queue.add(jsonObjectRequest);
     }
 
-    // listens if movie from suggestions is clicked (NOT YET CONNECTED TO THE LISTVIEW)
+    // listens if movie from suggestions is clicked
     private class ListItemClickListener implements AdapterView.OnItemClickListener {
 
         @Override

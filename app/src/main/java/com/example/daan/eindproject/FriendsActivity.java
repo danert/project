@@ -144,9 +144,9 @@ public class FriendsActivity extends AppCompatActivity {
             // grab name that has been clicked
             String friendname = (String) parent.getItemAtPosition(position);
 
-            // direct user to movie info activity
-            Intent intent = new Intent(WatchlistActivity.this, MovieInfoActivity.class);
-            intent.putExtra("movieInfo", movieInfo);
+            // direct user to friend viewing history
+            Intent intent = new Intent(FriendsActivity.this, ViewingHistoryActivity.class);
+
             intent.putExtra("username", username);
             intent.putExtra("fromWatchlist", "yes");
             startActivity(intent);

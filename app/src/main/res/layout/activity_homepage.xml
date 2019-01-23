@@ -69,4 +69,14 @@
         android:paddingLeft="20dp"
         android:text="Zoek een film"
         android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="397dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/catamaran_medium"
+        android:onClick="friendsClicked"
+        android:paddingLeft="20dp"
+        android:text="Vrienden"
+        android:textSize="40dp" />
 </LinearLayout>

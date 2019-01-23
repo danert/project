@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomepageActivity"></activity>
+        <activity android:name=".HomepageActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".ViewingHistoryActivity" />
         <activity android:name=".WatchlistActivity" />
@@ -31,7 +31,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".FriendsActivity"></activity>
     </application>
 
 </manifest>

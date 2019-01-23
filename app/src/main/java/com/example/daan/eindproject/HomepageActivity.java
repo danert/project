@@ -113,4 +113,12 @@ public class HomepageActivity extends AppCompatActivity {
 
         showProgress();
     }
+
+    // move to friends activity
+    public void friendsClicked(View v) {
+
+        Intent intent = new Intent(HomepageActivity.this, FriendsActivity.class);
+        intent.putExtra("username", username);
+        startActivity(intent);
+    }
 }

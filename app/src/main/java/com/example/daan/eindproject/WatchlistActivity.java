@@ -64,10 +64,7 @@ public class WatchlistActivity extends AppCompatActivity {
     public void showWatchlist() {
 
         RequestQueue queue = Volley.newRequestQueue(this);
-
-        // DAAN VERVANGEN DOOR GEBRUIKERSNAAM LATER!!!
         String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%swatchlist", username);
-
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
             // when watchlist was received

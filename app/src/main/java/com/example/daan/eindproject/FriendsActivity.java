@@ -84,6 +84,9 @@ public class FriendsActivity extends AppCompatActivity {
                     FriendListPostRequest request = new FriendListPostRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+                            Toast.makeText(getApplicationContext(), "Vriend toegevoegd!", Toast.LENGTH_SHORT).show();
+                            finish();
+                            startActivity(getIntent());
                         }
                     }, new Response.ErrorListener() {
                         @Override

@@ -3,6 +3,8 @@ package com.example.daan.eindproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -13,6 +15,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -25,6 +28,7 @@ public class FriendDetailActivity extends AppCompatActivity {
 
     ListView listView;
     String username, friendName;
+    int removalId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,5 +122,60 @@ public class FriendDetailActivity extends AppCompatActivity {
         });
         queue.add(jsonArrayRequest);
 
+    }
+
+    // remove friend from database
+    public void removeFriend(View v) {
+
+        // check what the id of the friend is in database
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        // set right url to look up specific friend
+        String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%sfriendlist?friendName=%s", username, friendName);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+
+                try {
+                    JSONObject friendAccount = response.getJSONObject(0);
+                    removalId = friendAccount.getInt("id");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                // request to delete friend (https://www.itsalif.info/content/android-volley-tutorial-http-get-post-put)
+                RequestQueue deleteQueue = Volley.newRequestQueue(getApplicationContext());
+
+                String deleteUrl = String.format("https://ide50-danert.legacy.cs50.io:8080/%sfriendlist/%d", username, removalId);
+
+                StringRequest dr = new StringRequest(Request.Method.DELETE, deleteUrl,
+                        new Response.Listener<String>()
+                        {
+                            @Override
+                            public void onResponse(String response) {
+
+                                Toast.makeText(getApplicationContext(), "Vriend verwijderd!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        },
+                        new Response.ErrorListener()
+                        {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                );
+                deleteQueue.add(dr);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+        queue.add(jsonArrayRequest);
     }
 }

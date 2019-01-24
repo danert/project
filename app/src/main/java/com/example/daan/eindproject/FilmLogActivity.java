@@ -122,6 +122,7 @@ public class FilmLogActivity extends AppCompatActivity {
                 Intent intent = new Intent(FilmLogActivity.this, HomepageActivity.class);
                 intent.putExtra("username", username);
                 startActivity(intent);
+                finish();
             }
         }, new Response.ErrorListener() {
             @Override

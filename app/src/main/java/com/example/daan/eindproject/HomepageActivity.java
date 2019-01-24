@@ -1,8 +1,12 @@
 package com.example.daan.eindproject;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.TypefaceSpan;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -30,7 +34,6 @@ public class HomepageActivity extends AppCompatActivity {
 
         // change action bar title (https://stackoverflow.com/questions/3438276/how-to-change-the-text-on-the-action-bar)
         getSupportActionBar().setTitle("Cinemaster");
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 

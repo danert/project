@@ -73,9 +73,20 @@
         android:id="@+id/textView8"
         android:layout_width="397dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:fontFamily="@font/catamaran_medium"
         android:onClick="friendsClicked"
         android:paddingLeft="20dp"
         android:text="Vrienden"
         android:textSize="40dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/catamaran_medium"
+        android:onClick="logOut"
+        android:text="uitloggen" />
 </LinearLayout>

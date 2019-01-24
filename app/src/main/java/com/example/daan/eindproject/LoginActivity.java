@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
 
         // move to homepage if user has logged in before on device (https://medium.com/@prakharsrivastava_219/keep-the-user-logged-in-android-app-5fb6ce29ed65)
         sp = getSharedPreferences("login",MODE_PRIVATE);
-
         if(sp.getBoolean("logged",false)){
             Intent intent = new Intent(LoginActivity.this, HomepageActivity.class);
             intent.putExtra("username", sp.getString("username", ""));
@@ -90,6 +89,8 @@ public class LoginActivity extends AppCompatActivity {
                             // let app know user has logged in (https://medium.com/@prakharsrivastava_219/keep-the-user-logged-in-android-app-5fb6ce29ed65)
                             sp.edit().putBoolean("logged",true).apply();
                             sp.edit().putString("username",username).apply();
+
+                            finish();
                         }
 
                         // if password is incorrect, notify user

@@ -2,6 +2,7 @@ package com.example.daan.eindproject;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 public class HomepageActivity extends AppCompatActivity {
 
     String username;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class HomepageActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Cinemaster");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
+
+        sp = getSharedPreferences("login",MODE_PRIVATE);
 
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
@@ -101,7 +105,6 @@ public class HomepageActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonArrayRequest);
-
     }
 
     // updates progress when coming from another activity
@@ -120,6 +123,14 @@ public class HomepageActivity extends AppCompatActivity {
 
         Intent intent = new Intent(HomepageActivity.this, FriendsActivity.class);
         intent.putExtra("username", username);
+        startActivity(intent);
+    }
+
+    // moves user back to login activity
+    public void logOut(View v) {
+
+        sp.edit().putBoolean("logged",false).apply();
+        Intent intent = new Intent(HomepageActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 }

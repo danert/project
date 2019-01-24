@@ -27,6 +27,7 @@ import java.util.ArrayList;
 public class FriendsActivity extends AppCompatActivity {
 
     String username;
+    ArrayList<String> friendList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,12 @@ public class FriendsActivity extends AppCompatActivity {
         // prevent user from adding itself
         if (friendName.equals(username)) {
             Toast.makeText(getApplicationContext(), "Je kunt jezelf niet als vriend toevoegen!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // prevent user from adding a friend twice
+        else if (friendList.contains(friendName)){
+            Toast.makeText(getApplicationContext(), "Vriend is al eerder toegevoegd!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -107,7 +114,7 @@ public class FriendsActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
 
-                ArrayList<String> friendList = new ArrayList<>();
+                friendList = new ArrayList<>();
 
                 for (int i = 0; i < response.length(); i++) {
 

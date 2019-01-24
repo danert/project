@@ -28,6 +28,7 @@ public class FriendDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().setTitle("Vrienden");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_detail);
 

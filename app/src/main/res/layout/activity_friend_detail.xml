@@ -14,16 +14,16 @@
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/catamaran_medium"
-        android:textSize="30dp" />
+        android:textSize="25dp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="361dp"
-        android:layout_height="62dp"
+        android:layout_width="315dp"
+        android:layout_height="46dp"
         android:layout_gravity="center"
         android:max="10"
-        android:scaleY="9" />
+        android:scaleY="7" />
 
     <TextView
         android:id="@+id/moviesLeft"
@@ -31,7 +31,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/catamaran_medium"
-        android:textSize="17dp" />
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/catamaran_medium"
+        android:text="Kijkgeschiedenis"
+        android:textSize="20dp"/>
 
     <ListView
         android:id="@+id/listView"

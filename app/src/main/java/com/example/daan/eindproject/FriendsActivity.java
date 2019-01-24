@@ -164,4 +164,12 @@ public class FriendsActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    // updates friends when coming from another activity
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        showFriendList();
+    }
 }

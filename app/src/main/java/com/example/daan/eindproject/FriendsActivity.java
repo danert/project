@@ -37,6 +37,9 @@ public class FriendsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
 
+        ListView friendsList = findViewById(R.id.friendsList);
+        friendsList.setOnItemClickListener(new ListItemClickListener());
+
         showFriendList();
     }
 
@@ -142,13 +145,12 @@ public class FriendsActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             // grab name that has been clicked
-            String friendname = (String) parent.getItemAtPosition(position);
+            String friendName = (String) parent.getItemAtPosition(position);
 
             // direct user to friend viewing history
-            Intent intent = new Intent(FriendsActivity.this, ViewingHistoryActivity.class);
-
+            Intent intent = new Intent(FriendsActivity.this, FriendDetailActivity.class);
             intent.putExtra("username", username);
-            intent.putExtra("fromWatchlist", "yes");
+            intent.putExtra("friendName", friendName);
             startActivity(intent);
         }
     }

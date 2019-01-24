@@ -3,10 +3,9 @@ package com.example.daan.eindproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -22,54 +21,56 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ViewingHistoryActivity extends AppCompatActivity {
+public class FriendDetailActivity extends AppCompatActivity {
 
-    ListView viewHistoryList;
-    String username;
+    ListView listView;
+    String username, friendName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getSupportActionBar().setTitle("Kijkgeschiedenis");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_viewing_history);
+        setContentView(R.layout.activity_friend_detail);
 
-        username = getIntent().getStringExtra("username");
+        listView = findViewById(R.id.listView);
 
-        viewHistoryList = findViewById(R.id.viewhistoryList);
-        getViewingHistory();
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
+        friendName = intent.getStringExtra("friendName");
 
-        viewHistoryList.setOnItemClickListener(new ListItemClickListener());
+        showFriend();
     }
 
-    // listens if movie from view history is clicked
-    private class ListItemClickListener implements AdapterView.OnItemClickListener {
+    // show viewing history and progress of friend
+    public void showFriend() {
 
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            // grabs movie that has been clicked
-            FilmReview filmReview = (FilmReview) parent.getItemAtPosition(position);
-
-            // direct user to movie review activity
-            Intent intent = new Intent(ViewingHistoryActivity.this, FilmReviewActivity.class);
-            intent.putExtra("filmReview", filmReview);
-            startActivity(intent);
-        }
-    }
-
-    // grabs viewing history of user from database
-    public void getViewingHistory() {
-
+        // request viewing history from database
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%sviewinghistory", username);
+        String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%sviewinghistory", friendName);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
-            // when viewing history was received
             @Override
             public void onResponse(JSONArray response) {
 
                 // prepare list to give to adapter
                 ArrayList<FilmReview> filmReviews = new ArrayList<>();
+
+                // get amount of movies watched
+                int moviesWatched = response.length();
+
+                // calculate and show level
+                int userLevel = (moviesWatched / 10) + 1;
+                TextView profileText = findViewById(R.id.profileText);
+                profileText.setText(String.format("%s (lvl %d)", friendName, userLevel));
+
+                // show remaining progress to level up in progressbar
+                int moviesSingleDigit = moviesWatched % 10;
+                ProgressBar progressBar = findViewById(R.id.progressBar);
+                progressBar.setProgress(moviesSingleDigit);
+
+                // show how many movies user needs to watch to level up
+                int nextLevel = (userLevel) * 10;
+                TextView moviesLeft = findViewById(R.id.moviesLeft);
+                moviesLeft.setText(String.format("%d/%d", moviesWatched, nextLevel));
 
                 // convert database entries to filmreviews
                 for (int i = 0; i < response.length(); i++) {
@@ -105,7 +106,7 @@ public class ViewingHistoryActivity extends AppCompatActivity {
 
                     // show viewing history to user
                     ReviewAdapter adapter = new ReviewAdapter(getApplicationContext(), R.layout.filmreview, filmReviews);
-                    viewHistoryList.setAdapter(adapter);
+                    listView.setAdapter(adapter);
                 }
             }
         }, new Response.ErrorListener() {
@@ -115,5 +116,6 @@ public class ViewingHistoryActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonArrayRequest);
+
     }
 }

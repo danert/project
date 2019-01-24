@@ -32,7 +32,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".FriendsActivity"></activity>
+        <activity android:name=".FriendsActivity" />
+        <activity android:name=".FriendDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".HomepageActivity" />
-        <activity android:name=".ProfileActivity" />
         <activity android:name=".ViewingHistoryActivity" />
         <activity android:name=".WatchlistActivity" />
         <activity android:name=".MovieInfoActivity" />

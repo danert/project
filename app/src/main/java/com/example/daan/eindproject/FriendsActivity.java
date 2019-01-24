@@ -85,8 +85,7 @@ public class FriendsActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
                             Toast.makeText(getApplicationContext(), "Vriend toegevoegd!", Toast.LENGTH_SHORT).show();
-                            finish();
-                            startActivity(getIntent());
+                            showFriendList();
                         }
                     }, new Response.ErrorListener() {
                         @Override

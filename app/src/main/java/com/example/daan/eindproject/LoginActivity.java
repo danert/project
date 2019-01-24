@@ -1,6 +1,7 @@
 package com.example.daan.eindproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 public class LoginActivity extends AppCompatActivity {
 
     EditText usernameView, passwordView;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,15 @@ public class LoginActivity extends AppCompatActivity {
         // grab edittexts
         usernameView = findViewById(R.id.usernameView);
         passwordView = findViewById(R.id.passwordView);
+
+        // move to homepage if user has logged in before on device (https://medium.com/@prakharsrivastava_219/keep-the-user-logged-in-android-app-5fb6ce29ed65)
+        sp = getSharedPreferences("login",MODE_PRIVATE);
+
+        if(sp.getBoolean("logged",false)){
+            Intent intent = new Intent(LoginActivity.this, HomepageActivity.class);
+            intent.putExtra("username", sp.getString("username", ""));
+            startActivity(intent);
+        }
     }
 
     // when user has pressed login button
@@ -75,6 +86,10 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(LoginActivity.this, HomepageActivity.class);
                             intent.putExtra("username", username);
                             startActivity(intent);
+
+                            // let app know user has logged in (https://medium.com/@prakharsrivastava_219/keep-the-user-logged-in-android-app-5fb6ce29ed65)
+                            sp.edit().putBoolean("logged",true).apply();
+                            sp.edit().putString("username",username).apply();
                         }
 
                         // if password is incorrect, notify user

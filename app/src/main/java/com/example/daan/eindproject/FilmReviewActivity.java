@@ -60,4 +60,6 @@ public class FilmReviewActivity extends AppCompatActivity {
         String textReview = filmReview.getReviewText();
         reviewText.setText(textReview);
     }
+
+
 }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -37,6 +38,7 @@ public class FriendDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_friend_detail);
 
         listView = findViewById(R.id.listView);
+        listView.setOnItemClickListener(new ListItemClickListener());
 
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
@@ -180,5 +182,21 @@ public class FriendDetailActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonArrayRequest);
+    }
+
+    // listens if movie from view history is clicked
+    private class ListItemClickListener implements AdapterView.OnItemClickListener {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            // grabs movie that has been clicked
+            FilmReview filmReview = (FilmReview) parent.getItemAtPosition(position);
+
+            // direct user to movie review activity
+            Intent intent = new Intent(FriendDetailActivity.this, FilmReviewActivity.class);
+            intent.putExtra("filmReview", filmReview);
+            startActivity(intent);
+        }
     }
 }

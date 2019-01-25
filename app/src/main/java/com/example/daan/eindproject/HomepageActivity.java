@@ -39,7 +39,7 @@ public class HomepageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
-        sp = getSharedPreferences("login",MODE_PRIVATE);
+        sp = getSharedPreferences("login", MODE_PRIVATE);
 
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
@@ -132,5 +132,10 @@ public class HomepageActivity extends AppCompatActivity {
         sp.edit().putBoolean("logged",false).apply();
         Intent intent = new Intent(HomepageActivity.this, LoginActivity.class);
         startActivity(intent);
+    }
+
+    // do nothing if back is pressed
+    @Override
+    public void onBackPressed() {
     }
 }

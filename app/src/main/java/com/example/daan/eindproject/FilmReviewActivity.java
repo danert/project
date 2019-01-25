@@ -3,6 +3,7 @@ package com.example.daan.eindproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -41,6 +42,12 @@ public class FilmReviewActivity extends AppCompatActivity {
         RatingBar ratingBar = findViewById(R.id.ratingBar2);
         float starRating = filmReview.getStarRating();
         ratingBar.setRating(starRating);
+
+        // show timestamp
+        TextView timestampView = findViewById(R.id.timestampView);
+        String timeStamp = filmReview.getTimeStamp();
+        Log.i("TIMESTAMPTWEE", timeStamp);
+        timestampView.setText(timeStamp);
 
         // make sure user can't change rating (todo: is nog lelijk)
         ratingBar.setEnabled(false);

@@ -24,6 +24,15 @@
         android:layout_marginTop="15dp"
         tools:srcCompat="@tools:sample/avatars[5]" />
 
+    <TextView
+        android:id="@+id/timestampView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/catamaran_medium"
+        android:text="timestamp" />
+
     <RatingBar
         android:id="@+id/ratingBar2"
         android:layout_width="wrap_content"

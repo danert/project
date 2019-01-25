@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 public class FilmReview implements Serializable {
 
-    String movieId, releaseTitle, reviewText, posterUrl;
+    String movieId, releaseTitle, reviewText, posterUrl, timeStamp;
     float starRating;
 
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 
     public void setMovieId(String movieId) {
         this.movieId = movieId;
@@ -46,5 +49,9 @@ public class FilmReview implements Serializable {
 
     public float getStarRating() {
         return starRating;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
     }
 }

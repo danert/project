@@ -103,6 +103,9 @@ public class FriendDetailActivity extends AppCompatActivity {
                         float floatRating = Float.valueOf(starRating);
                         filmReview.setStarRating(floatRating);
 
+                        String timeStamp = databaseEntry.getString("timeStamp");
+                        filmReview.setTimeStamp(timeStamp);
+
                         filmReviews.add(filmReview);
 
                     } catch (JSONException e) {

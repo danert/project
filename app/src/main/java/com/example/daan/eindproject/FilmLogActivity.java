@@ -25,6 +25,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 public class FilmLogActivity extends AppCompatActivity {
@@ -60,6 +62,9 @@ public class FilmLogActivity extends AppCompatActivity {
     // add film log to database
     public void submitLog(View v) {
 
+        // https://stackoverflow.com/questions/5175728/how-to-get-the-current-date-time-in-java
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+
         // grab rating and review text
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         starRating = ratingBar.getRating();
@@ -91,7 +96,7 @@ public class FilmLogActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
-        }, movieInfo, starRating, reviewText);
+        }, movieInfo, starRating, reviewText, timeStamp);
         queue.add(request);
 
         // check if movie is in watchlist

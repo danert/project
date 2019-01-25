@@ -52,9 +52,6 @@ public class FilmReviewActivity extends AppCompatActivity {
         String date = String.format("Gekeken op %s-%s-%s", day, month, year);
         timestampView.setText(date);
 
-        // make sure user can't change rating (todo: is nog lelijk)
-        ratingBar.setEnabled(false);
-
         // show review text
         TextView reviewText = findViewById(R.id.reviewText);
         String textReview = filmReview.getReviewText();

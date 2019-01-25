@@ -46,8 +46,11 @@ public class FilmReviewActivity extends AppCompatActivity {
         // show timestamp
         TextView timestampView = findViewById(R.id.timestampView);
         String timeStamp = filmReview.getTimeStamp();
-        Log.i("TIMESTAMPTWEE", timeStamp);
-        timestampView.setText(timeStamp);
+        String year = timeStamp.substring(0,4);
+        String month = timeStamp.substring(4, 6);
+        String day = timeStamp.substring(6, 8);
+        String date = String.format("Gekeken op %s-%s-%s", day, month, year);
+        timestampView.setText(date);
 
         // make sure user can't change rating (todo: is nog lelijk)
         ratingBar.setEnabled(false);

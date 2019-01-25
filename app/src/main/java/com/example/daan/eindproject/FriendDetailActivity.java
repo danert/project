@@ -196,6 +196,7 @@ public class FriendDetailActivity extends AppCompatActivity {
             // direct user to movie review activity
             Intent intent = new Intent(FriendDetailActivity.this, FilmReviewActivity.class);
             intent.putExtra("filmReview", filmReview);
+            intent.putExtra("fromFriends", "yes");
             startActivity(intent);
         }
     }

@@ -75,7 +75,7 @@ public class FilmLogActivity extends AppCompatActivity {
             return;
         }
 
-        EditText reviewTextView = (EditText) findViewById(R.id.reviewText);
+        EditText reviewTextView = findViewById(R.id.reviewText);
         reviewText = reviewTextView.getText().toString();
 
         // make sure user enters text

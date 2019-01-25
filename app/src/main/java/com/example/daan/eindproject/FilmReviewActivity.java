@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -40,6 +41,13 @@ public class FilmReviewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         filmReview = (FilmReview) intent.getSerializableExtra("filmReview");
         username = (String) intent.getStringExtra("username");
+
+        // if user is looking at profile of a friend, hide remove button
+        if (intent.getStringExtra("fromFriends") != null) {
+            Log.i("TEST", "AAAAAAAAAAAAAAAAAA");
+            Button removeButton = findViewById(R.id.removeButton);
+            removeButton.setVisibility(View.GONE);
+        }
 
         // show releasetitle to user
         TextView titleView = findViewById(R.id.titleView);

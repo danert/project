@@ -73,4 +73,4 @@ Ondanks de Hackathon is het gelukt om de app wat extra functionaliteit te geven.
 
 Vandaag heb ik de functie om reviews van jezelf te verwijderen toegevoegd. Ook laten reviews nu de datum zien waarop de film gelogd is. Ook kan de gebruiker nu volledige recensies van vrienden zien i.p.v. alleen de kijkgeschiedenis. 
 
-<img src="/doc/frienddetail.jpg" width="250">
+<img src="/doc/frienddetail.jpg" width="250"> <img src="/doc/reviewdate.jpg" width="250">

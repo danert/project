@@ -53,11 +53,12 @@ public class ViewingHistoryActivity extends AppCompatActivity {
             // direct user to movie review activity
             Intent intent = new Intent(ViewingHistoryActivity.this, FilmReviewActivity.class);
             intent.putExtra("filmReview", filmReview);
+            intent.putExtra("username", username);
             startActivity(intent);
         }
     }
 
-    // grabs viewing history of user from database
+    // grabs and shows viewing history of user from database
     public void getViewingHistory() {
 
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -118,5 +119,12 @@ public class ViewingHistoryActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonArrayRequest);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        getViewingHistory();
     }
 }

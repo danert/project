@@ -71,7 +71,7 @@ public class FilmLogActivity extends AppCompatActivity {
 
         // make sure user enters rating
         if (starRating == 0) {
-            Toast.makeText(getApplicationContext(), "Please give the movie a rating!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Geef de film alsjeblieft een rating!", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -80,7 +80,7 @@ public class FilmLogActivity extends AppCompatActivity {
 
         // make sure user enters text
         if (reviewText.length() == 0) {
-            Toast.makeText(getApplicationContext(), "Please give the movie a review!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Geef de film alsjeblieft een (korte) recensie!", Toast.LENGTH_SHORT).show();
             return;
         }
 

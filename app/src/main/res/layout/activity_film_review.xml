@@ -50,7 +50,18 @@
         android:layout_marginStart="14dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="14dp"
+        android:layout_weight="1"
         android:fontFamily="@font/catamaran_medium"
         android:text="TextView"
         android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/removeButton"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/catamaran_medium"
+        android:onClick="removeReview"
+        android:text="verwijder recensie" />
 </LinearLayout>

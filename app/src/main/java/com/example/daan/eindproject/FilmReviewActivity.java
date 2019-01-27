@@ -1,9 +1,8 @@
 package com.example.daan.eindproject;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,7 +22,6 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 public class FilmReviewActivity extends AppCompatActivity {
 
@@ -44,7 +42,6 @@ public class FilmReviewActivity extends AppCompatActivity {
 
         // if user is looking at profile of a friend, hide remove button
         if (intent.getStringExtra("fromFriends") != null) {
-            Log.i("TEST", "AAAAAAAAAAAAAAAAAA");
             Button removeButton = findViewById(R.id.removeButton);
             removeButton.setVisibility(View.GONE);
         }

@@ -1,7 +1,5 @@
 package com.example.daan.eindproject;
 
-import android.util.Log;
-
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
@@ -23,7 +21,6 @@ public class ViewingHistoryPostRequest extends StringRequest {
         this.starRating = Float.toString(starRating);
         this.reviewText = reviewText;
         this.timeStamp = timeStamp;
-        Log.i("TIMESTAMP", timeStamp);
     }
 
     // Method to supply parameters to the request

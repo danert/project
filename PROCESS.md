@@ -68,3 +68,9 @@ Het inlogsysteem werkt nu een stuk beter dan gisteren. Gisteren ging het naviger
 Ondanks de Hackathon is het gelukt om de app wat extra functionaliteit te geven. Je kunt nu naast het toevoegen van vrienden deze ook verwijderen en hun profiel bekijken. Als je op een vriendenprofiel klikt krijg je hun progressie en kijkgeschiedenis op één scherm te zien. Het scherm is hierdoor wat vol en druk, later maak ik hier misschien twee aparte schermen van. Ook kan het interessant zijn om de watchlist van een vriend te bekijken. Verder blijft de gebruiker nu automatisch ingelogd op een apparaat als deze al eerder heeft ingelogd op het apparaat. Bij het openen van de app krijgt de gebruiker zo automatisch de homepage te zien. Ook kan de gebruiker nu uitloggen. Ook gebeurt er niets meer als de gebruiker op zijn eigen gebruikersnaam drukt op de homepage. Er is nu geen apart scherm meer voor het profiel, dat zit nu als het ware ingebouwd in de homepage.
 
   De gebruiker kan nu andere profielen volgen zonder dat dit profiel hiervoor toestemming geeft. Niet iedereen zal willen dat hun filmrecensies openbaar te lezen zijn voor anderen. Om dit op te lossen zal ik waarschijnlijk gebruikers de optie geven om hun profiel op openbaar of privé te zetten. Dit kost een stuk minder werk dan een systeem waarbij gebruikers elkaar volgverzoeken moeten sturen die geaccepteerd kunnen worden.
+  
+#### Vrijdag 25 januari
+
+Vandaag heb ik de functie om reviews van jezelf te verwijderen toegevoegd. Ook laten reviews nu de datum zien waarop de film gelogd is. Ook kan de gebruiker nu volledige recensies van vrienden zien i.p.v. alleen de kijkgeschiedenis. 
+
+<img src="/doc/frienddetail.jpg" width="250"> <img src="/doc/reviewdate.jpg" width="250">

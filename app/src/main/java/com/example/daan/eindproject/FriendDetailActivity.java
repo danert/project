@@ -150,30 +150,11 @@ public class FriendDetailActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                // request to delete friend (https://www.itsalif.info/content/android-volley-tutorial-http-get-post-put)
-                RequestQueue deleteQueue = Volley.newRequestQueue(getApplicationContext());
-
+                // delete friend from database
                 String deleteUrl = String.format("https://ide50-danert.legacy.cs50.io:8080/%sfriendlist/%d", username, removalId);
-
-                StringRequest dr = new StringRequest(Request.Method.DELETE, deleteUrl,
-                        new Response.Listener<String>()
-                        {
-                            @Override
-                            public void onResponse(String response) {
-
-                                Toast.makeText(getApplicationContext(), "Vriend verwijderd!", Toast.LENGTH_SHORT).show();
-                                finish();
-                            }
-                        },
-                        new Response.ErrorListener()
-                        {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        }
-                );
-                deleteQueue.add(dr);
+                HelperClass.removeEntry(getApplicationContext(), deleteUrl);
+                Toast.makeText(getApplicationContext(), "Vriend verwijderd!", Toast.LENGTH_SHORT).show();
+                finish();
             }
         }, new Response.ErrorListener() {
             @Override

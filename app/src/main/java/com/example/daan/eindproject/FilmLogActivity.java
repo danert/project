@@ -71,18 +71,12 @@ public class FilmLogActivity extends AppCompatActivity {
 
         // make sure user enters rating
         if (starRating == 0) {
-            Toast.makeText(getApplicationContext(), "Geef de film alsjeblieft een rating!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Geef de film alsjeblieft een beoordeling!", Toast.LENGTH_LONG).show();
             return;
         }
 
         EditText reviewTextView = findViewById(R.id.reviewText);
         reviewText = reviewTextView.getText().toString();
-
-        // make sure user enters text
-        if (reviewText.length() == 0) {
-            Toast.makeText(getApplicationContext(), "Geef de film alsjeblieft een (korte) recensie!", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
         // add film log to database
         String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%sviewinghistory", username);
@@ -117,7 +111,10 @@ public class FilmLogActivity extends AppCompatActivity {
 
                         JSONObject movie = response.getJSONObject(0);
                         removalId = movie.getInt("id");
-                        deleteEntry();
+
+                        // remove movie from watchlist in database
+                        String deleteUrl = String.format("https://ide50-danert.legacy.cs50.io:8080/%swatchlist/%d", username, removalId);
+                        HelperClass.removeEntry(getApplicationContext(), deleteUrl);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -136,31 +133,5 @@ public class FilmLogActivity extends AppCompatActivity {
             }
         });
         checkQueue.add(jsonArrayRequest);
-    }
-
-    // remove movie from watchlist
-    public void deleteEntry () {
-
-        // request to delete movie entry (https://www.itsalif.info/content/android-volley-tutorial-http-get-post-put)
-        RequestQueue deleteQueue = Volley.newRequestQueue(getApplicationContext());
-
-        String deleteUrl = String.format("https://ide50-danert.legacy.cs50.io:8080/%swatchlist/%d", username, removalId);
-
-        StringRequest dr = new StringRequest(Request.Method.DELETE, deleteUrl,
-                new Response.Listener<String>()
-                {
-                    @Override
-                    public void onResponse(String response) {
-                    }
-                },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
-        deleteQueue.add(dr);
     }
 }

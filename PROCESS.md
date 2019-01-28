@@ -84,3 +84,5 @@ Vandaag is vooral het design van de app aangepast. De app heeft nu een donkergri
 Op de homepage van de app krijg je nu een korte uitleg over de werking van de app te zien als je op het vraagtekentje drukt. In plaats van een knop onderaan de app waarmee je kunt uitloggen, doe je dat nu door rechtsboven op een icoontje te klikken. Ook kun je nu vrienden en recensies verwijderen door op een prullenbak te klikken rechtsbovenaan (i.p.v. een knop onderaan). Door de ActionBar te gebruiken i.p.v. knoppen wordt er ruimte bespaard en ziet de app er moderner uit.
   
 <img src="/doc/frienddelete.jpg" width="250"> <img src="/doc/apphelp.jpg" width="250">
+  
+  Ook om een film te loggen hoef je nu niet meer op een knop te drukken, maar druk je rechtsbovenaan op het icoontje van een potlood.

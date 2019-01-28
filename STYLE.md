@@ -28,5 +28,6 @@ Daarnaast staat er nog een soort checklist met de naam [Core app quality](https:
 * DRY code, dus herhalende stukken code incapsuleren in een functie
 * Indentatie is 4 spaties
 * De app is goed werkzaam op ieder formaat telefoon
+* Landscape modus moet op ieder scherm van de app te gebruiken zijn
 * De materials.io standaarden worden zo veel mogelijk als basis genomen voor het ontwerp van de app.
 * De back button moet je altijd terug sturen naar een relevante pagina, dus zo nodig een activity finishen

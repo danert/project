@@ -3,6 +3,9 @@ package com.example.daan.eindproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -127,8 +130,34 @@ public class FriendDetailActivity extends AppCompatActivity {
 
     }
 
-    // remove friend from database
-    public void removeFriend(View v) {
+    // listens if movie from view history is clicked
+    private class ListItemClickListener implements AdapterView.OnItemClickListener {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            // grabs movie that has been clicked
+            FilmReview filmReview = (FilmReview) parent.getItemAtPosition(position);
+
+            // direct user to movie review activity
+            Intent intent = new Intent(FriendDetailActivity.this, FilmReviewActivity.class);
+            intent.putExtra("filmReview", filmReview);
+            intent.putExtra("fromFriends", "yes");
+            startActivity(intent);
+        }
+    }
+
+    // add delete icon to action bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.remove, menu);
+        return true;
+    }
+
+    // remove friend
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
         // check what the id of the friend is in database
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -161,22 +190,7 @@ public class FriendDetailActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonArrayRequest);
-    }
 
-    // listens if movie from view history is clicked
-    private class ListItemClickListener implements AdapterView.OnItemClickListener {
-
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            // grabs movie that has been clicked
-            FilmReview filmReview = (FilmReview) parent.getItemAtPosition(position);
-
-            // direct user to movie review activity
-            Intent intent = new Intent(FriendDetailActivity.this, FilmReviewActivity.class);
-            intent.putExtra("filmReview", filmReview);
-            intent.putExtra("fromFriends", "yes");
-            startActivity(intent);
-        }
+        return true;
     }
 }

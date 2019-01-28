@@ -3,6 +3,9 @@ package com.example.daan.eindproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -28,6 +31,7 @@ public class FilmReviewActivity extends AppCompatActivity {
     FilmReview filmReview;
     String username;
     int removalId;
+    boolean friendProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +46,7 @@ public class FilmReviewActivity extends AppCompatActivity {
 
         // if user is looking at profile of a friend, hide remove button
         if (intent.getStringExtra("fromFriends") != null) {
-            Button removeButton = findViewById(R.id.removeButton);
-            removeButton.setVisibility(View.GONE);
+            friendProfile = true;
         }
 
         // show releasetitle to user
@@ -77,8 +80,20 @@ public class FilmReviewActivity extends AppCompatActivity {
         reviewText.setText(textReview);
     }
 
+    // add remove icon to action bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+
+        if (!friendProfile) {
+            inflater.inflate(R.menu.remove, menu);
+        }
+        return true;
+    }
+
     // remove review from database
-    public void removeReview(View v) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
         // check what the id of the review is in database
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -128,5 +143,7 @@ public class FilmReviewActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonArrayRequest);
+
+        return true;
     }
 }

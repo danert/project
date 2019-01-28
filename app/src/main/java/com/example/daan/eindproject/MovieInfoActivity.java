@@ -87,6 +87,7 @@ public class MovieInfoActivity extends AppCompatActivity {
             WatchlistPostRequest request = new WatchlistPostRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
+                    Toast.makeText(getApplicationContext(), "Film toegevoegd aan watchlist!", Toast.LENGTH_LONG).show();
                 }
             }, new Response.ErrorListener() {
                 @Override

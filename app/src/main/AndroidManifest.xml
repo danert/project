@@ -11,27 +11,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".HomepageActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ViewingHistoryActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".WatchlistActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".MovieInfoActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".FilmLogActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".FilmReviewActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".FilmSearchActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".HomepageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewingHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WatchlistActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MovieInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FilmLogActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FilmReviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FilmSearchActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,12 +46,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".FriendsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".FriendDetailActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FriendsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FriendDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".HelpActivity"></activity>
     </application>
 
 </manifest>

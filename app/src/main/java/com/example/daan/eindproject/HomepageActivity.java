@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -129,5 +132,22 @@ public class HomepageActivity extends AppCompatActivity {
     // do nothing if back is pressed
     @Override
     public void onBackPressed() {
+    }
+
+    // add help icon to action bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.help, menu);
+        return true;
+    }
+
+    // move user to help activity
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(HomepageActivity.this, HelpActivity.class);
+        startActivity(intent);
+
+        return true;
     }
 }

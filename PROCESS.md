@@ -77,7 +77,7 @@ Vandaag heb ik de functie om reviews van jezelf te verwijderen toegevoegd. Ook l
 
 #### Maandag 28 januari
 
-Vandaag is vooral het design van de app aangepast. De app heeft nu een donkergrijze achtergrond met vooral witte tekst. Ik heb me hierbij laten inspireren door de app van IMDb. Het grijswitte uiterlijk van de app doet nu meer aan film denken dan het vorige design. Naast het veranderen van de kleuren heb ik ook enkele knoppen aan de ActionBar toegevoegd.
+Vandaag is vooral het design van de app aangepast. De app heeft nu een donkergrijze achtergrond met vooral witte tekst. Ik heb me hierbij laten inspireren door de app van IMDb. Het grijswitte uiterlijk van de app doet nu meer aan film denken dan het vorige design. Ook is de tekst op de homepage nu gecentreerd zodat de app er een stuk symmetrischer (en zo mooier) uitziet. Naast het veranderen van de kleuren heb ik ook enkele knoppen aan de ActionBar toegevoegd.
   
 <img src="/doc/newdesign.jpg" width="250"> <img src="/doc/reviewdelete.jpg" width="250">  
 

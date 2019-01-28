@@ -14,7 +14,8 @@
         android:layout_weight="1"
         android:fontFamily="@font/catamaran_medium"
         android:text="TextView"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textColor="#ffffff"/>
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -23,7 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="38dp"
-        android:numStars="5" />
+        android:numStars="5"
+        android:theme="@style/SmallRatingBar"/>
 
     <ImageView
         android:id="@+id/posterView"

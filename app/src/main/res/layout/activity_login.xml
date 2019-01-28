@@ -38,7 +38,9 @@
         android:ems="10"
         android:fontFamily="@font/catamaran_medium"
         android:hint="Gebruikersnaam"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColorHint="@color/hint_text_color"
+        android:textColor="@color/edit_text_color"/>
 
     <EditText
         android:id="@+id/passwordView"
@@ -50,7 +52,9 @@
         android:ems="10"
         android:fontFamily="@font/catamaran_medium"
         android:hint="Wachtwoord"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColorHint="@color/hint_text_color"
+        android:textColor="@color/edit_text_color"/>
 
     <Button
         android:id="@+id/loginButton"
@@ -63,7 +67,8 @@
         android:backgroundTint="#e6e6e6"
         android:fontFamily="@font/catamaran_medium"
         android:onClick="loginClick"
-        android:text="login" />
+        android:text="login"
+        android:textColor="@color/background_material_light" />
 
     <Button
         android:id="@+id/registerButton"
@@ -76,7 +81,8 @@
         android:fontFamily="@font/catamaran_medium"
         android:onClick="registerClick"
         android:backgroundTint="#e6e6e6"
-        android:text="registreren" />
+        android:text="registreren"
+        android:textColor="@color/background_material_light" />
 
     <TextView
         android:id="@+id/textView11"

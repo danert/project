@@ -43,6 +43,8 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:ems="10"
+        android:textColorHint="@color/hint_text_color"
+        android:textColor="@color/edit_text_color"
         android:hint="Recensie"
         android:inputType="textMultiLine"
         android:paddingLeft="5dp"
@@ -56,5 +58,6 @@
         android:layout_marginBottom="7dp"
         android:onClick="submitLog"
         android:text="toevoegen"
-        android:backgroundTint="#e6e6e6"/>
+        android:backgroundTint="#e6e6e6"
+        android:textColor="@color/background_material_light"/>
 </LinearLayout>

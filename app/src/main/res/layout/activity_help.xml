@@ -21,10 +21,11 @@
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="35dp"
         android:layout_marginRight="12dp"
         android:fontFamily="@font/catamaran_medium"
+        android:gravity="center"
         android:text="Cinemaster is een app die als doel heeft om jou te motiveren meer films te gaan kijken! Wanneer je een film hebt gekeken kun je deze opzoeken in de app en deze een beoordeling geven. Ook is het mogelijk om films toe te voegen aan je watchlist om later te bekijken. Voor iedere 10 films die je bekijkt stijg je een level! Als je vrienden kent die deze app ook gebruiken, kun je deze volgen om hun progressie en kijkgeschiedenis te zien.  "
         android:textSize="17dp" />
 
@@ -33,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="55dp"
         android:fontFamily="@font/catamaran_medium"
         android:text="Veel kijkplezier!"
         android:textSize="23dp" />

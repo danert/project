@@ -3,6 +3,9 @@ package com.example.daan.eindproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -60,15 +63,6 @@ public class MovieInfoActivity extends AppCompatActivity {
             Button addWatchlist = findViewById(R.id.addWatchlist);
             addWatchlist.setText("verwijder uit watchlist");
         }
-    }
-
-    // move to filmlogactivity
-    public void logFilm(View v) {
-
-        Intent intent = new Intent(MovieInfoActivity.this, FilmLogActivity.class);
-        intent.putExtra("movieInfo", movieInfo);
-        intent.putExtra("username", username);
-        startActivity(intent);
     }
 
     // add or remove movie from watchlist
@@ -137,5 +131,23 @@ public class MovieInfoActivity extends AppCompatActivity {
         Intent intent = new Intent(MovieInfoActivity.this, HomepageActivity.class);
         intent.putExtra("username", username);
         startActivity(intent);
+    }
+
+    // add log icon to action bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.log, menu);
+        return true;
+    }
+
+    // move to film log activity
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(MovieInfoActivity.this, FilmLogActivity.class);
+        intent.putExtra("movieInfo", movieInfo);
+        intent.putExtra("username", username);
+        startActivity(intent);
+        return true;
     }
 }

@@ -24,6 +24,8 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
+        android:textColorHint="@color/hint_text_color"
+        android:textColor="@color/edit_text_color"
         android:fontFamily="@font/catamaran_medium"
         android:hint="Gebruikersnaam"
         android:inputType="textPersonName" />
@@ -37,6 +39,7 @@
         android:fontFamily="@font/catamaran_medium"
         android:onClick="addFriend"
         android:text="vriend toevoegen"
+        android:textColor="@color/background_material_light"
         android:backgroundTint="#e6e6e6"/>
 
 

@@ -30,7 +30,7 @@ public class HomepageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         // change action bar title (https://stackoverflow.com/questions/3438276/how-to-change-the-text-on-the-action-bar)
-        getSupportActionBar().setTitle("Cinemaster");
+        getSupportActionBar().setTitle("Homepage");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
@@ -121,14 +121,6 @@ public class HomepageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // moves user back to login activity
-    public void logOut(View v) {
-
-        sp.edit().putBoolean("logged",false).apply();
-        Intent intent = new Intent(HomepageActivity.this, LoginActivity.class);
-        startActivity(intent);
-    }
-
     // do nothing if back is pressed
     @Override
     public void onBackPressed() {
@@ -139,15 +131,32 @@ public class HomepageActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.help, menu);
+        inflater.inflate(R.menu.logout, menu);
         return true;
     }
 
-    // move user to help activity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(HomepageActivity.this, HelpActivity.class);
-        startActivity(intent);
 
+        Intent intent;
+
+        switch (item.getItemId()) {
+
+            // move user to help activity
+            case R.id.action_help:
+                intent = new Intent(HomepageActivity.this, HelpActivity.class);
+                startActivity(intent);
+                break;
+
+            // log user out
+            case R.id.action_logout:
+                sp.edit().putBoolean("logged",false).apply();
+                intent = new Intent(HomepageActivity.this, LoginActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
         return true;
     }
 }

@@ -15,6 +15,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:ems="10"
+        android:textColorHint="@color/hint_text_color"
+        android:textColor="@color/edit_text_color"
         android:fontFamily="@font/catamaran_medium"
         android:hint="Gebruikersnaam"
         android:inputType="textPersonName" />
@@ -28,6 +30,8 @@
         android:ems="10"
         android:fontFamily="@font/catamaran_medium"
         android:hint="Wachtwoord"
+        android:textColorHint="@color/hint_text_color"
+        android:textColor="@color/edit_text_color"
         android:inputType="textPassword" />
 
     <EditText
@@ -39,10 +43,13 @@
         android:ems="10"
         android:fontFamily="@font/catamaran_medium"
         android:hint="Wachtwoord (opnieuw)"
+        android:textColorHint="@color/hint_text_color"
+        android:textColor="@color/edit_text_color"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/button"
+        android:textColor="@color/background_material_light"
         android:backgroundTint="#e6e6e6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

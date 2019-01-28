@@ -87,7 +87,6 @@ public class FriendDetailActivity extends AppCompatActivity {
                     FilmReview filmReview = new FilmReview();
 
                     try {
-
                         JSONObject databaseEntry = response.getJSONObject(i);
 
                         String movieId = databaseEntry.getString("movieId");
@@ -127,7 +126,6 @@ public class FriendDetailActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonArrayRequest);
-
     }
 
     // listens if movie from view history is clicked
@@ -161,10 +159,7 @@ public class FriendDetailActivity extends AppCompatActivity {
 
         // check what the id of the friend is in database
         RequestQueue queue = Volley.newRequestQueue(this);
-
-        // set right url to look up specific friend
         String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%sfriendlist?friendName=%s", username, friendName);
-
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
             @Override

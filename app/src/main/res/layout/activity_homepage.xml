@@ -8,6 +8,17 @@
     tools:context=".HomepageActivity">
 
     <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/timepiece"
+        android:text="Cinemaster"
+        android:textColor="@color/colorAccent"
+        android:textSize="70dp" />
+
+    <TextView
         android:id="@+id/profileText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,54 +50,44 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="43dp"
         android:fontFamily="@font/catamaran_medium"
+        android:gravity="center"
         android:onClick="pageClicked"
-        android:paddingLeft="20dp"
         android:paddingBottom="10dp"
         android:text="Kijkgeschiedenis"
-        android:textSize="40dp" />
+        android:textSize="33dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/catamaran_medium"
+        android:gravity="center"
         android:onClick="pageClicked"
-        android:paddingLeft="20dp"
         android:paddingBottom="10dp"
         android:text="Watchlist"
-        android:textSize="40dp" />
+        android:textSize="33dp" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="406dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/catamaran_medium"
+        android:gravity="center"
         android:onClick="pageClicked"
-        android:paddingLeft="20dp"
         android:text="Zoek een film"
-        android:textSize="40dp" />
+        android:textSize="33dp" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="397dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginBottom="9dp"
         android:fontFamily="@font/catamaran_medium"
+        android:gravity="center"
         android:onClick="friendsClicked"
-        android:paddingLeft="20dp"
         android:text="Vrienden"
-        android:textSize="40dp" />
+        android:textSize="33dp" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="108dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/catamaran_medium"
-        android:onClick="logOut"
-        android:text="uitloggen"
-        android:backgroundTint="#e6e6e6"/>
 </LinearLayout>

@@ -74,3 +74,12 @@ Ondanks de Hackathon is het gelukt om de app wat extra functionaliteit te geven.
 Vandaag heb ik de functie om reviews van jezelf te verwijderen toegevoegd. Ook laten reviews nu de datum zien waarop de film gelogd is. Ook kan de gebruiker nu volledige recensies van vrienden zien i.p.v. alleen de kijkgeschiedenis. 
 
 <img src="/doc/frienddetail.jpg" width="250"> <img src="/doc/reviewdate.jpg" width="250">
+
+#### Maandag 28 januari
+
+Vandaag is vooral het design van de app aangepast. De app heeft nu een donkergrijze achtergrond met vooral witte tekst. Ik heb me hierbij laten inspireren door de app van IMDb. Het grijswitte uiterlijk van de app doet nu meer aan film denken dan het vorige design. Naast het veranderen van de kleuren heb ik ook enkele knoppen aan de ActionBar toegevoegd.
+<img src="/doc/newdesign.jpg" width="250"> <img src="/doc/reviewdelete.jpg" width="250">  
+
+Op de homepage van de app krijg je nu een korte uitleg over de werking van de app te zien als je op het vraagtekentje drukt. In plaats van een knop onderaan de app waarmee je kunt uitloggen, doe je dat nu door rechtsboven op een icoontje te klikken. Ook kun je nu vrienden en recensies verwijderen door op een prullenbak te klikken rechtsbovenaan (i.p.v. een knop onderaan). Door de ActionBar te gebruiken i.p.v. knoppen wordt er ruimte bespaard en ziet de app er moderner uit.
+
+<img src="/doc/frienddelete.jpg" width="250"> <img src="/doc/apphelp.jpg" width="250">

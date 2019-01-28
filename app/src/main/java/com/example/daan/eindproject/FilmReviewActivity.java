@@ -82,10 +82,7 @@ public class FilmReviewActivity extends AppCompatActivity {
 
         // check what the id of the review is in database
         RequestQueue queue = Volley.newRequestQueue(this);
-
-        // set right url to look up specific movie
         String url = String.format("https://ide50-danert.legacy.cs50.io:8080/%sviewinghistory?timeStamp=%s", username, filmReview.getTimeStamp());
-
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
             // when movie was received

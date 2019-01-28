@@ -66,8 +66,6 @@ public class MovieInfoActivity extends AppCompatActivity {
     public void logFilm(View v) {
 
         Intent intent = new Intent(MovieInfoActivity.this, FilmLogActivity.class);
-
-        // give movie info and username to intent
         intent.putExtra("movieInfo", movieInfo);
         intent.putExtra("username", username);
         startActivity(intent);
@@ -104,10 +102,7 @@ public class MovieInfoActivity extends AppCompatActivity {
 
             // check what the id of the movie is in database
             RequestQueue queue = Volley.newRequestQueue(this);
-
-            // set right url to look up specific movie
             url = String.format("https://ide50-danert.legacy.cs50.io:8080/%swatchlist?movieId=%s", username, movieInfo.getMovieId());
-
             JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
                 // when movie was received
@@ -133,6 +128,8 @@ public class MovieInfoActivity extends AppCompatActivity {
                 }
             });
             queue.add(jsonArrayRequest);
+
+            Toast.makeText(getApplicationContext(), "Film verwijderd uit watchlist!", Toast.LENGTH_LONG).show();
         }
 
         // move back to homepage

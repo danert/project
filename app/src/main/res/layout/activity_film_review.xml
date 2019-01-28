@@ -14,7 +14,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/catamaran_medium"
-        android:text="Filmrecensie"
         android:textSize="30dp" />
 
     <ImageView
@@ -31,8 +30,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="2dp"
         android:fontFamily="@font/catamaran_medium"
-        android:text="timestamp"
-        android:textSize="20dp"/>
+        android:textSize="20dp" />
 
     <RatingBar
         android:id="@+id/ratingBar2"
@@ -52,7 +50,6 @@
         android:layout_marginEnd="14dp"
         android:layout_weight="1"
         android:fontFamily="@font/catamaran_medium"
-        android:text="TextView"
         android:textSize="20dp" />
 
     <Button
@@ -60,9 +57,9 @@
         android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="#e6e6e6"
         android:fontFamily="@font/catamaran_medium"
         android:onClick="removeReview"
-        android:text="verwijder recensie"
-        android:backgroundTint="#e6e6e6"/>
+        android:text="verwijder recensie" />
 </LinearLayout>

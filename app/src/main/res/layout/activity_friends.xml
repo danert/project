@@ -36,7 +36,8 @@
         android:layout_marginBottom="6dp"
         android:fontFamily="@font/catamaran_medium"
         android:onClick="addFriend"
-        android:text="vriend toevoegen" />
+        android:text="vriend toevoegen"
+        android:backgroundTint="#e6e6e6"/>
 
 
 </LinearLayout>

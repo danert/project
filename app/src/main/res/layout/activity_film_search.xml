@@ -25,7 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="inputEntered"
-        android:text="zoek" />
+        android:text="zoek"
+        android:backgroundTint="#e6e6e6"/>
 
     <ListView
         android:id="@+id/searchResults"

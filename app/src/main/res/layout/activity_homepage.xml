@@ -51,11 +51,10 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:fontFamily="@font/catamaran_medium"
         android:onClick="pageClicked"
         android:paddingLeft="20dp"
-        android:paddingBottom="0dp"
+        android:paddingBottom="10dp"
         android:text="Watchlist"
         android:textSize="40dp" />
 
@@ -88,5 +87,6 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/catamaran_medium"
         android:onClick="logOut"
-        android:text="uitloggen" />
+        android:text="uitloggen"
+        android:backgroundTint="#e6e6e6"/>
 </LinearLayout>

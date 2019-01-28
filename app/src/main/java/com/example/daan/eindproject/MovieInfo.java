@@ -10,7 +10,8 @@ public class MovieInfo implements Serializable {
         this.releaseTitle = releaseTitle;
     }
 
-    public void setPosterUrl(String posterUrl) {
+    public void setPosterUrl(String url) {
+
         this.posterUrl = posterUrl;
     }
 

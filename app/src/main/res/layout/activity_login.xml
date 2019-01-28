@@ -54,24 +54,28 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="match_parent"
+        android:layout_width="236dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
+        android:backgroundTint="#e6e6e6"
         android:fontFamily="@font/catamaran_medium"
         android:onClick="loginClick"
         android:text="login" />
 
     <Button
         android:id="@+id/registerButton"
-        android:layout_width="match_parent"
+        android:layout_width="236dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
         android:fontFamily="@font/catamaran_medium"
         android:onClick="registerClick"
+        android:backgroundTint="#e6e6e6"
         android:text="registreren" />
 
     <TextView

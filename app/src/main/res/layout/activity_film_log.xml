@@ -55,5 +55,6 @@
         android:layout_gravity="center"
         android:layout_marginBottom="7dp"
         android:onClick="submitLog"
-        android:text="toevoegen" />
+        android:text="toevoegen"
+        android:backgroundTint="#e6e6e6"/>
 </LinearLayout>

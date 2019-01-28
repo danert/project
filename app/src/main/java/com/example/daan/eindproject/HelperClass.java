@@ -1,6 +1,5 @@
 package com.example.daan.eindproject;
 
-
 import android.content.Context;
 import android.widget.Toast;
 

@@ -57,5 +57,6 @@
         android:layout_marginBottom="3dp"
         android:fontFamily="@font/catamaran_medium"
         android:onClick="removeFriend"
-        android:text="vriend verwijderen" />
+        android:text="vriend verwijderen"
+        android:backgroundTint="#e6e6e6"/>
 </LinearLayout>

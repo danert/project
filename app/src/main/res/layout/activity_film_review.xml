@@ -63,5 +63,6 @@
         android:layout_marginBottom="2dp"
         android:fontFamily="@font/catamaran_medium"
         android:onClick="removeReview"
-        android:text="verwijder recensie" />
+        android:text="verwijder recensie"
+        android:backgroundTint="#e6e6e6"/>
 </LinearLayout>

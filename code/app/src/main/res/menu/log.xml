@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_log"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_log_button"
+        android:icon="@drawable/ic_eye_button"
         android:title="Log"
         app:showAsAction="always" />
 

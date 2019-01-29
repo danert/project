@@ -12,25 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".HomepageActivity"
+            android:name=".activities.HomepageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ViewingHistoryActivity"
+            android:name=".activities.ViewingHistoryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WatchlistActivity"
+            android:name=".activities.WatchlistActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MovieInfoActivity"
+            android:name=".activities.MovieInfoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FilmLogActivity"
+            android:name=".activities.FilmLogActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FilmReviewActivity"
+            android:name=".activities.FilmReviewActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FilmSearchActivity"
+            android:name=".activities.FilmSearchActivity"
             android:screenOrientation="portrait" />
 
         <meta-data
@@ -38,7 +38,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,15 +47,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FriendsActivity"
+            android:name=".activities.FriendsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FriendDetailActivity"
+            android:name=".activities.FriendDetailActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".HelpActivity"></activity>
+        <activity android:name=".activities.HelpActivity"></activity>
     </application>
 
 </manifest>

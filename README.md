@@ -17,6 +17,7 @@
 -ActionBar Title change: https://stackoverflow.com/questions/3438276/how-to-change-the-text-on-the-action-bar  
 -Keeping the user logged in: https://medium.com/@prakharsrivastava_219/keep-the-user-logged-in-android-app-5fb6ce29ed65  
 -Set image using Picasso: https://stackoverflow.com/questions/43971819/android-how-to-set-an-image-to-an-imageview-from-a-url-programatically  
+-Timepiece Font: https://www.1001fonts.com/timepiece-font.html#license
 
 ### License
 

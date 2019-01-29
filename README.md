@@ -18,6 +18,6 @@
 -Keeping the user logged in: https://medium.com/@prakharsrivastava_219/keep-the-user-logged-in-android-app-5fb6ce29ed65  
 -Set image using Picasso: https://stackoverflow.com/questions/43971819/android-how-to-set-an-image-to-an-imageview-from-a-url-programatically  
 
+### License
 
-
-
+Copyright © 2019, Daan Visser. Uitgebracht onder de GNU General Public License v3.0.

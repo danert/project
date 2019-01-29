@@ -5,7 +5,10 @@ import com.android.volley.toolbox.StringRequest;
 
 import java.util.HashMap;
 import java.util.Map;
+/*
 
+    SAMPLE HEADER COMMENT WOEHOE
+ */
 public class CreateAccountRequest extends StringRequest {
 
     String username, password;

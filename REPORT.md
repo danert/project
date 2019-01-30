@@ -1,6 +1,8 @@
 ## Final Report
 
+<img src="/doc/finalhomepage.jpg" width="250">
 
+Cinemaster is een app waarmee gebruikers films kunnen ‘loggen’ in een soort dagboek en hier progressiepunten mee kunnen verdienen. Ook kunnen ze de progressie en kijkgeschiedenis van hun vrienden bekijken.
 
 #### Activities overview
 <img src="/doc/finalreportscheme.jpg" width="900">

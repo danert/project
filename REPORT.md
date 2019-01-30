@@ -1,8 +1,8 @@
+## Final Report
 
 
 
-
-
+#### Activities overview
 <img src="/doc/finalreportscheme.jpg" width="900">
 
 #### Database

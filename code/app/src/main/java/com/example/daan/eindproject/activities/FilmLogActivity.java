@@ -95,8 +95,6 @@ public class FilmLogActivity extends AppCompatActivity {
 
         // check if movie is in watchlist
         RequestQueue checkQueue = Volley.newRequestQueue(this);
-
-        // set right url to look up specific movie
         url = String.format("https://ide50-danert.legacy.cs50.io:8080/%swatchlist?movieId=%s", username, movieInfo.getMovieId());
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {

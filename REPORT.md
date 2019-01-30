@@ -7,6 +7,33 @@ Cinemaster is een app waarmee gebruikers films kunnen ‘loggen’ in een soort 
 #### Activities overview
 <img src="/doc/finalreportscheme.jpg" width="900">
 
+#### Classes
+
+<table>
+<tr><th>MovieInfo </th><th>FilmReview</th></tr>
+<tr><td>
+
+|attribute| type |
+|--|--|
+|movieId| string|
+| releaseTitle | string | 
+| moviePlot | string |
+| posterUrl | string |
+
+</td><td>
+
+|attribute| type |
+|--|--|
+|movieId| string|
+| releaseTitle | string | 
+| reviewText | string |
+| posterUrl | string |
+| timeStamp | string |
+| starRating | float |
+
+</td></tr> </table>
+
+
 #### Database
  De app maakt gebruik van een online database om informatie in op te slaan (https://github.com/stgm/rester). In de tabel genaamd
  profiles zitten alle aangemaakte accounts. Verder heeft iedere specifieke gebruiker 3 tabellen in de database. Ieder profiel 

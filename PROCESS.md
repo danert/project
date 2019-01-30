@@ -86,3 +86,7 @@ Op de homepage van de app krijg je nu een korte uitleg over de werking van de ap
 <img src="/doc/frienddelete.jpg" width="250"> <img src="/doc/apphelp.jpg" width="250">
   
   Ook om een film te loggen hoef je nu niet meer op een knop te drukken, maar druk je rechtsbovenaan op het icoontje van een potlood.
+  
+#### Dinsdag 29 januari
+
+Vandaag nog wat kleine aanpassingen aan het design van de app gedaan. In plaats van een potlood druk je nu op het icoon van een oogje om een film te loggen. Ook heeft de notificatiebalk bovenaan het scherm nu dezelfde kleur als de achtergrond van de app. Ook ben ik begonnen aan de Final Report en het filmpje. Het is nog niet gelukt om de lengte van het filmpje onder de drie minuten te houden aangezien de app best een aantal schermen en functies heeft.

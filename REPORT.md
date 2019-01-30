@@ -5,7 +5,7 @@
 Cinemaster is een app waarmee gebruikers films kunnen ‘loggen’ in een soort dagboek en hier progressiepunten mee kunnen verdienen. Ook kunnen ze de progressie en kijkgeschiedenis van hun vrienden bekijken.
 
 #### Activities overview
-<img src="/doc/finalreportscheme.jpg" width="900">
+<img src="/doc/technicaldesign.jpg" width="900">
 
 Als de gebruiker de app voor de eerste keer op een apparaat opent, dan komt deze terecht op LoginActivity. Als de gebruiker de app echter afsluit terwijl deze ingelogd is, dan blijft HomepageActivity het nieuwe startscherm tot de gebruiker opnieuw uitlogt.
 

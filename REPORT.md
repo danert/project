@@ -7,9 +7,7 @@ Cinemaster is een app waarmee gebruikers films kunnen ‘loggen’ in een soort 
 #### Activities overview
 <img src="/doc/finalreportscheme.jpg" width="900">
 
-In het schema hierboven zie je twee pijltjes vanaf 'Vrienden' op de homepage, maar de linkerpijl hoort bij 'Zoek een film'.
-
-  Als de gebruiker de app voor de eerste keer op een apparaat opent, dan komt deze terecht op LoginActivity. Als de gebruiker de app echter afsluit terwijl deze ingelogd is, dan blijft HomepageActivity het nieuwe startscherm tot de gebruiker opnieuw uitlogt.
+Als de gebruiker de app voor de eerste keer op een apparaat opent, dan komt deze terecht op LoginActivity. Als de gebruiker de app echter afsluit terwijl deze ingelogd is, dan blijft HomepageActivity het nieuwe startscherm tot de gebruiker opnieuw uitlogt.
 
 #### Classes
 
@@ -42,6 +40,10 @@ De class MovieInfo wordt gebruikt om informatie over een specifieke film op te s
 </td></tr> </table>
 
 Verder bevat het project een HelperClass met slechts één functie die door meerdere activities gebruikt wordt (removeEntry()). Deze functie neemt een Context en een url-string en doet vervolgens een VolleyRequest om de entry van de url uit de database te verwijderen.
+
+#### PostRequests
+
+Het project bevat vier verschillende PostRequests die worden gebruikt om informatie aan de online database toe te voegen. CreateAccountRequest 
 
 #### Database
  De app maakt gebruik van een online database om informatie in op te slaan (https://github.com/stgm/rester). In de tabel genaamd

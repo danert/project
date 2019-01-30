@@ -9,6 +9,10 @@ Cinemaster is een app waarmee gebruikers films kunnen ‘loggen’ in een soort 
 
 #### Classes
 
+De class MovieInfo wordt gebruikt om informatie over een specifieke film op te slaan en zo makkelijk over te dragen aan de PreviewAdapter en MovieInfoActivity. MovieInfo's worden aangemaakt als de gebruiker een zoekopdracht uitvoert in FilmSearchActivity. The Movie Database API geeft dan een lijst met zoeksuggesties. Voor iedere suggestie worden de relevante attributes gepakt en geset (zie tabel).
+  
+  De class FilmReview bevat informatie over een film inclusief een beoordeling van de gebruiker. De class wordt gebruikt om over te dragen aan de ReviewAdapter en FilmReviewActivity. Er worden FilmReviews aangemaakt als de gebruiker ViewingHistoryActivity binnenkomt. De viewinghistory in de database van de gebruiker wordt dan bekeken, en voor iedere entry in die tabel wordt een FilmReview aangemaakt. Deze lijst met FilmReviews kan vervolgens worden gegeven aan de ReviewAdapter.
+
 <table>
 <tr><th>MovieInfo </th><th>FilmReview</th></tr>
 <tr><td>

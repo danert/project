@@ -3,7 +3,7 @@
 
 
 
-
+<img src="/doc/reportscheme.jpg" width="900">
 
 #### Database
  De app maakt gebruik van een online database om informatie in op te slaan (https://github.com/stgm/rester). In de tabel genaamd

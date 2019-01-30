@@ -7,7 +7,9 @@ Cinemaster is een app waarmee gebruikers films kunnen ‘loggen’ in een soort 
 #### Activities overview
 <img src="/doc/finalreportscheme.jpg" width="900">
 
-Als de gebruiker de app voor de eerste keer op een apparaat opent, dan komt deze terecht op LoginActivity. Als de gebruiker de app echter afsluit terwijl deze ingelogd is, dan blijft HomepageActivity het nieuwe startscherm tot de gebruiker opnieuw uitlogt.
+In het schema hierboven zie je twee pijltjes vanaf 'Vrienden' op de homepage, maar de linkerpijl hoort bij 'Zoek een film'.
+
+  Als de gebruiker de app voor de eerste keer op een apparaat opent, dan komt deze terecht op LoginActivity. Als de gebruiker de app echter afsluit terwijl deze ingelogd is, dan blijft HomepageActivity het nieuwe startscherm tot de gebruiker opnieuw uitlogt.
 
 #### Classes
 

@@ -33,6 +33,7 @@ Cinemaster is een app waarmee gebruikers films kunnen ‘loggen’ in een soort 
 
 </td></tr> </table>
 
+Verder bevat het project een HelperClass met slechts één functie die door meerdere activities gebruikt wordt (removeEntry()). Deze functie neemt een Context en een url-string en doet vervolgens een VolleyRequest om de entry van de url uit de database te verwijderen.
 
 #### Database
  De app maakt gebruik van een online database om informatie in op te slaan (https://github.com/stgm/rester). In de tabel genaamd

@@ -43,7 +43,7 @@ Verder bevat het project een HelperClass met slechts één functie die door meer
 
 #### PostRequests
 
-Het project bevat vier verschillende PostRequests die worden gebruikt om informatie aan de online database toe te voegen. CreateAccountRequest 
+Het project bevat vier verschillende PostRequests die worden gebruikt om informatie aan de online database toe te voegen. CreateAccountRequest wordt gebruikt om een nieuw profiel toe te voegen aan de /profiles tabel. FriendListPostRequest wordt gebruikt om een profiel aan iemands vriendenlijst toe te voegen. ViewingHistoryPostRequest wordt gebruikt om een beoordeling toe te voegen aan de kijkgeschiedenis van een gebruiker. Tenslotte wordt een WatchlistPostRequest gebruikt om een film aan iemands watchlist toe te voegen. De parameters die worden meegegeven aan de POST-request zijn te zien in de tabellen hieronder (kopje Database, exclusief de id's).
 
 #### Database
  De app maakt gebruik van een online database om informatie in op te slaan (https://github.com/stgm/rester). In de tabel genaamd

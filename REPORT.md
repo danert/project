@@ -41,6 +41,10 @@ De class MovieInfo wordt gebruikt om informatie over een specifieke film op te s
 
 Verder bevat het project een HelperClass met slechts één functie die door meerdere activities gebruikt wordt (removeEntry()). Deze functie neemt een Context en een url-string en doet vervolgens een VolleyRequest om de entry van de url uit de database te verwijderen.
 
+#### Adapters
+Het project maakt gebruik van twee adapters, PreviewAdapter en ReviewAdapter. De PreviewAdapter krijgt een ArrayList met MovieInfos en stopt deze in de ListViews in de WatchlistActivity en FilmSearchActivity (nadat de gebruiker een zoekopdracht heeft uitgevoerd). De adapter zorgt ervoor dat de gebruiker de titel, jaar van uitgave en poster te zien krijgt van een of meerdere films.
+  De ReviewAdapter krijgt een ArrayList met FilmReviews en stopt deze in de ListViews in de ViewingHistoryActivity en de FriendDetailActivity. Deze adapter lijkt erg op de ReviewAdapter, alleen laat deze ook een gegeven beoordeling zien in de vorm van een RatingBar.
+
 #### PostRequests
 
 Het project bevat vier verschillende PostRequests die worden gebruikt om informatie aan de online database toe te voegen. CreateAccountRequest wordt gebruikt om een nieuw profiel toe te voegen aan de /profiles tabel. FriendListPostRequest wordt gebruikt om een profiel aan iemands vriendenlijst toe te voegen. ViewingHistoryPostRequest wordt gebruikt om een beoordeling toe te voegen aan de kijkgeschiedenis van een gebruiker. Tenslotte wordt een WatchlistPostRequest gebruikt om een film aan iemands watchlist toe te voegen. De parameters die worden meegegeven aan de POST-request zijn te zien in de tabellen hieronder (kopje Database, exclusief de id's).

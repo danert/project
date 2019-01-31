@@ -99,6 +99,8 @@ Het project bevat vier verschillende PostRequests die worden gebruikt om informa
 
 </td></tr> </table>
 
+In het begin dacht ik eraan om in de /profiles tabel van iedere gebruiker op te slaan hoeveel films deze gebruiker heeft gekeken, maar toen stootte ik tegen het probleem dat je dan twee POST-requests moet uitvoeren bij het loggen van een nieuwe film (profiles en viewinghistory moeten geupdate worden). Toen besefte ik me dat het aantal gekeken films gelijk staat aan het aantal entries in de viewinghistory tabel, waardoor het niet meer nodig was om dat apart nog ergens bij te houden.
+
 ### Challenges and changes
 
 Als je kijkt naar mijn originele Design, dan is het principe van de app nog steeds hetzelfde gebleven. Toch zijn er veel aspecten toegevoegd of weggelaten.
@@ -107,8 +109,10 @@ Als je kijkt naar mijn originele Design, dan is het principe van de app nog stee
   
   In mijn originele Design heb ik ook al kort beschreven hoe mijn database eruit zou kunnen zien. Ik beschreef daar een tabel met alle gebruikers van de app en hun 'eigenschappen'. Van de attributen 'achievements' en 'favoritefilms' is in de huidige app geen sprake meer. De 'progression' en 'movieswatched' komen nog wel terug, maar in een andere vorm. Ieder profiel heeft nu zijn eigen tabel met bekeken films, en de progressie wordt berekend op basis van het aantal entries in deze tabel. Verder heeft ieder profiel nog een eigen tabel voor de vriendenlijst en de watchlist, iets wat ik nog niet had beschreven in het designbestand.
 
-Nadat de belangrijkste schermen van de app compleet waren, was het soms moeilijk om te bedenken wat de volgende stap was aangezien ik veel optionele features had aangegeven in mijn proposal. Zal ik eerst een vriendensysteem implementeren of me focussen op achievements? 
+  Nadat de belangrijkste schermen van de app compleet waren, was het soms moeilijk om te bedenken wat de volgende stap was aangezien ik veel optionele features had aangegeven in mijn proposal. Zal ik eerst een vriendensysteem implementeren of me focussen op achievements? 
 
-Nadat het filmzoeksysteem m.b.v. de API compleet was, moest ik bedenken of en wanneer ik de API nog meer zou gebruiken. Als je bijvoorbeeld op een film uit je watchlist klikt, is het dan de bedoeling om opnieuw gebruik te maken van de API om meer informatie over de film te krijgen? Ik besefte me dat het waarschijnlijk het handigst zou zijn om voor iedere film die de gebruiker opslaat (watchlist/viewinghistory) de informatie hiervan ook op te slaan in de database. Hierdoor is het bijvoorbeeld genoeg om één GET-request naar iemands watchlist te doen, en hoeft daarna niet meer voor iedere film in deze lijst een API-verzoek gedaan te worden. 
+  Nadat het filmzoeksysteem m.b.v. de API compleet was, moest ik bedenken of en wanneer ik de API nog meer zou gebruiken. Als je bijvoorbeeld op een film uit je watchlist klikt, is het dan de bedoeling om opnieuw gebruik te maken van de API om meer informatie over de film te krijgen? Ik besefte me dat het waarschijnlijk het handigst zou zijn om voor iedere film die de gebruiker opslaat (watchlist/viewinghistory) de informatie hiervan ook op te slaan in de database. Hierdoor is het bijvoorbeeld genoeg om één GET-request naar iemands watchlist te doen, en hoeft daarna niet meer voor iedere film in deze lijst een API-verzoek gedaan te worden. 
 
-
+  Ik heb een aantal dagen lang last gehad van een frustrerende bug waardoor de app crashte bij bepaalde zoekopdrachten. Na het gebruik van een aantal Log-statements ben ik erachter gekomen dat van sommige films het jaar van uitgave onbekend is bij The Movie Database API, waardoor deze null teruggaf i.p.v. een jaar. Hiermee ging mijn app vervolgens aan de slag, waardoor deze crashte. Ik heb dit uiteindelijk opgelost door bij deze films alleen de titel weer te geven zonder het jaar van uitgave.
+  
+  In het begin van het project was ik van plan om gebruik te maken van een ander levelsysteem. De gebruiker zou eerst 10 films moeten kijken om een level te stijgen, daarna 15, daarna 20, daarna 25, etc. Nadeel hiervan is dat het na een aantal levels extreem lang duurt voordat een gebruiker weer een level stijgt, en daardoor motivatie kan verliezen. Het kijken van 50 films neemt bijvoorbeeld enorm veel tijd in beslag. Daarom heb ik ervoor gekozen om de gebruiker bij iedere 10 films een level te laten stijgen. Hierdoor voelt het stijgen van een level toch als  een kleine overwinning aangezien het kijken van 10 films toch een redelijke tijd/moeite kost.

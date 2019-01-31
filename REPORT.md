@@ -14,6 +14,8 @@ Als de gebruiker de app voor de eerste keer op een apparaat opent, dan komt deze
 De class MovieInfo wordt gebruikt om informatie over een specifieke film op te slaan en zo makkelijk over te dragen aan de PreviewAdapter en MovieInfoActivity. MovieInfo's worden aangemaakt als de gebruiker een zoekopdracht uitvoert in FilmSearchActivity. The Movie Database API geeft dan een lijst met zoeksuggesties. Voor iedere suggestie worden de relevante attributes gepakt en geset (zie tabel).
   
   De class FilmReview bevat informatie over een film inclusief een beoordeling van de gebruiker. De class wordt gebruikt om over te dragen aan de ReviewAdapter en FilmReviewActivity. Er worden FilmReviews aangemaakt als de gebruiker ViewingHistoryActivity binnenkomt. De viewinghistory in de database van de gebruiker wordt dan bekeken, en voor iedere entry in die tabel wordt een FilmReview aangemaakt. Deze lijst met FilmReviews kan vervolgens worden gegeven aan de ReviewAdapter.
+  
+  Deze twee classes lijken erg op Film en FilmLog die ik heb beschreven in design.md. Het verschil met Film is echter dat MovieInfo geen filmDirector en filmScore bevat. De reden hiervoor is dat de API die ik gebruik voor zoekresultaten deze informatie niet weergeeft. Als ik deze info wel op zou willen slaan, zou ik opnieuw een API-verzoek moeten gebruiken om de info van een specifieke film op te vragen. Mij leek het beter om slechts één keer de API te gebruiken voor een film.
 
 <table>
 <tr><th>MovieInfo </th><th>FilmReview</th></tr>

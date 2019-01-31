@@ -98,3 +98,17 @@ Het project bevat vier verschillende PostRequests die worden gebruikt om informa
 | releaseTitle | string | 
 
 </td></tr> </table>
+
+### Challenges and changes
+
+Als je kijkt naar mijn originele Design, dan is het principe van de app nog steeds hetzelfde gebleven. Toch zijn er veel aspecten toegevoegd of weggelaten.
+  
+  In mijn originele proposal heb ik het niet over de functie gehad om een account aan te kunnen maken en hiermee in te loggen. Nu zit deze functie er wel in, deze is namelijk vrijwel noodzakelijk voor het vriendensysteem van de app waarmee andere profielen gevolgd kunnen worden. Ook is het nu voor gebruikers mogelijk om in te loggen op verschillende apparaten waardoor ze hun progressie niet kwijtraken als ze bijvoorbeeld een nieuwe telefoon nemen.
+  
+  In mijn originele Design heb ik ook al kort beschreven hoe mijn database eruit zou kunnen zien. Ik beschreef daar een tabel met alle gebruikers van de app en hun 'eigenschappen'. Van de attributen 'achievements' en 'favoritefilms' is in de huidige app geen sprake meer. De 'progression' en 'movieswatched' komen nog wel terug, maar in een andere vorm. Ieder profiel heeft nu zijn eigen tabel met bekeken films, en de progressie wordt berekend op basis van het aantal entries in deze tabel. Verder heeft ieder profiel nog een eigen tabel voor de vriendenlijst en de watchlist, iets wat ik nog niet had beschreven in het designbestand.
+
+Nadat de belangrijkste schermen van de app compleet waren, was het soms moeilijk om te bedenken wat de volgende stap was aangezien ik veel optionele features had aangegeven in mijn proposal. Zal ik eerst een vriendensysteem implementeren of me focussen op achievements? 
+
+Nadat het filmzoeksysteem m.b.v. de API compleet was, moest ik bedenken of en wanneer ik de API nog meer zou gebruiken. Als je bijvoorbeeld op een film uit je watchlist klikt, is het dan de bedoeling om opnieuw gebruik te maken van de API om meer informatie over de film te krijgen? Ik besefte me dat het waarschijnlijk het handigst zou zijn om voor iedere film die de gebruiker opslaat (watchlist/viewinghistory) de informatie hiervan ook op te slaan in de database. Hierdoor is het bijvoorbeeld genoeg om één GET-request naar iemands watchlist te doen, en hoeft daarna niet meer voor iedere film in deze lijst een API-verzoek gedaan te worden. 
+
+

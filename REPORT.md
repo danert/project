@@ -105,7 +105,7 @@ In het begin dacht ik eraan om in de /profiles tabel van iedere gebruiker op te 
 
 ### Challenges and changes
 
-Als je kijkt naar mijn originele Design, dan is het principe van de app nog steeds hetzelfde gebleven. Toch zijn er veel aspecten toegevoegd of weggelaten.
+Als je kijkt naar mijn originele Design, dan is het principe van de app nog steeds hetzelfde gebleven. Toch zijn er veel aspecten toegevoegd of weggelaten. Mijn originele proposal had zeven schermen, de huidige app heeft er 12.
   
   In mijn originele proposal heb ik het niet over de functie gehad om een account aan te kunnen maken en hiermee in te loggen. Nu zit deze functie er wel in, deze is namelijk vrijwel noodzakelijk voor het vriendensysteem van de app waarmee andere profielen gevolgd kunnen worden. Ook is het nu voor gebruikers mogelijk om in te loggen op verschillende apparaten waardoor ze hun progressie niet kwijtraken als ze bijvoorbeeld een nieuwe telefoon nemen.
   
